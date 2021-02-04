@@ -3,6 +3,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Button from 'react-bootstrap/Button'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
+import Nav from 'react-bootstrap/Nav'
 
 class NavBar extends React.Component {
 
@@ -17,23 +18,29 @@ class NavBar extends React.Component {
     render(){
         return(
             <div>
-                <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-                <Navbar.Brand >Finate</Navbar.Brand>
-                {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
-                {/* <Navbar.Collapse id="responsive-navbar-nav"> */}
-                {this.props.currentUser ?
-                <div className="btn-group">    
+                <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                <Navbar.Brand href="#home">Finate</Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="mr-auto">
+                    </Nav>
+                    {this.props.currentUser ?
+                <div className=" mr-sm-2">    
                 <Button className="pull-right" variant="info">Account</Button>
                 <Button variant="info">Sign Out</Button>
                 </div>
                     :
-                <div className="btn-group" >
+                    <div className=" mr-sm-2" >
                 <Button variant="info" onClick={this.handleSignIn}>Sign In</Button>
                 <Button variant="info" onClick={this.handleSignUp}>Sign Up</Button>
                 </div>
             }
-                {/* </Navbar.Collapse> */}
+                </Navbar.Collapse>
                 </Navbar>
+
+
+
+
             </div>
         )
     }

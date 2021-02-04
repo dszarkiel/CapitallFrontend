@@ -187,7 +187,7 @@ class SignUp extends React.Component {
                     </Form.Group>
 
                     <Button variant="primary" type="submit">
-                        Submit
+                        Create New Account
                     </Button>
                 </Form>
 
