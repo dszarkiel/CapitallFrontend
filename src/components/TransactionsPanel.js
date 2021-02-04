@@ -1,39 +1,47 @@
-import React from 'react';
+import React from 'react'
+import {connect} from 'react-redux'
 import Table from 'react-bootstrap/Table';
-import {connect} from 'react-redux';
-import TransactionItem from './TransactionItem'
 import Button from 'react-bootstrap/Button'
+import TransactionPanelItem from './TransactionPanelItem'
 
-class TransactionsContainer extends React.Component {
+
+class TransactionsPanel extends React.Component {
 
     renderTransactions = () => {
         return this.props.transactions.map(transObj => {
-            return <TransactionItem key={transObj.id} transaction={transObj} />
+            return <TransactionPanelItem key={transObj.id} transaction={transObj} />
         })
     }
 
-    handleTransactionPanel = () => [
-        this.props.history.push('/transactions')
-    ]
+    handleBackBtn = () => {
+        this.props.history.push('./dashboard')
+    }
 
     render(){
         return(
-            <div className="transactions-container">
-                <h2>Transactions</h2>
+            <div className="transactions-panel" >
+                <h2>Transactions Panel</h2>
                 <Table responsive>
                 <thead>
                     <tr>
                     <th>Date</th>
                     <th>Description</th>
                     <th>Category</th>
+                    <th>From Account</th>
+                    <th>To Account</th>
+                    <th>Goal</th>
                     <th>Amount</th>
+                    <th></th>
                     </tr>
                 </thead>
                 <tbody>
                 {this.renderTransactions()}
                 </tbody>
                 </Table>
-                <Button className="transaction-view-btn" onClick={this.handleTransactionPanel} >View</Button>
+
+                <Button onClick={this.handleBackBtn} >Back</Button>
+                <Button>Create New Transaction</Button>
+
             </div>
         )
     }
@@ -45,4 +53,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, null)(TransactionsContainer)
+export default connect(mapStateToProps, null)(TransactionsPanel)

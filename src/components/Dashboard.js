@@ -22,7 +22,7 @@ class Dashboard extends React.Component {
             <div className="dashboard" >
                 <Container fluid>
                 <Row>
-                    <Col lg={8}><TransactionContainer/></Col>
+                    <Col lg={8}><TransactionContainer history={this.props.history}/></Col>
                     <Col sm={4}><AccountsContainer/></Col>
                 </Row>
                 <Row>

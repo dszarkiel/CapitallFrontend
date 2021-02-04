@@ -80,7 +80,23 @@ text-align: center;
 
 }
 
-.brand {
-  display: flex;
-  align-items: center;
+.transaction-view-btn {
+  margin-top: 35px;
+}
+
+/* .transaction-btns {
+  padding-top: 5px;
+  padding-bottom: 5px;
+} */
+
+.transactions-panel {
+  text-align: center;
+  border: 1px solid black;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width:90%;
+  height: 75%;
+  transform: translate(-50%, -50%);
+  overflow: scroll;
 }
