@@ -44,7 +44,7 @@ class SignIn extends React.Component {
                 <Form onSubmit={this.handleSubmit} >
                     <Form.Group controlId="formBasicEmail">
                         <h3>Email Address</h3>
-                        {this.state.error ? <h5 style={{color: "red"}}>{this.state.error}</h5> : null}
+                        {this.state.error ? <p className="error" style={{color: "red"}}>{this.state.error}</p> : null}
                         <Form.Control type="email" name="email" placeholder="Enter email" value={this.state.email} onChange={this.handleInputChange} />
                         <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
@@ -56,7 +56,7 @@ class SignIn extends React.Component {
                         <Form.Control type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleInputChange}/>
                     </Form.Group>
                     <Button variant="primary" type="submit" width="100px" >
-                        Submit
+                        Sign In
                     </Button>
                     </Form>
             </div>
