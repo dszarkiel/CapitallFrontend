@@ -2,7 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import {connect} from 'react-redux'
-import {signInUser} from '../actions/signInUser'
+import {signInUser} from '../actions/userActions'
 
 class SignIn extends React.Component {
     state = {

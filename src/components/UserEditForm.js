@@ -3,21 +3,20 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import {Col} from 'react-bootstrap';
 import {connect} from 'react-redux'
-import {signUpUser} from '../actions/userActions'
+import {updateUser} from '../actions/userActions'
 
-class SignUp extends React.Component {
+class UserEditForm extends React.Component {
     state = {
-        first_name: "",
-        last_name: "",
-        date_of_birth: "",
-        email: "",
-        password: "",
-        address: "",
-        address_two: "",
-        city: "",
-        state: "",
-        zipcode: "",
-        avg_monthly_income: 0,
+        first_name: this.props.currentUser.first_name,
+        last_name: this.props.currentUser.last_name,
+        date_of_birth: this.props.currentUser.date_of_birth,
+        email: this.props.currentUser.email,
+        address: this.props.currentUser.address,
+        address_two: this.props.currentUser.address_two,
+        city: this.props.currentUser.city,
+        state: this.props.currentUser.state,
+        zipcode: this.props.currentUser.zipcode,
+        avg_monthly_income: this.props.currentUser.avg_monthly_income,
         error: ""
     }
 
@@ -26,19 +25,18 @@ class SignUp extends React.Component {
             [e.target.name]: e.target.value
         })
     }
-    
+
     handleSubmit = (e) => {
         e.preventDefault()
-
-        fetch("http://localhost:3000/users", {
-            method: "POST",
+        let id = this.props.currentUser.id
+        fetch(`http://localhost:3000/users/${id}`, {
+            method: "PATCH",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
                 first_name: this.state.first_name,
                 last_name: this.state.last_name,
                 date_of_birth: this.state.date_of_birth,
                 email: this.state.email,
-                password_digest: this.state.password,
                 address: this.state.address,
                 address_two: this.state.address_two,
                 city: this.state.city,
@@ -48,38 +46,39 @@ class SignUp extends React.Component {
             })
         })
         .then(response => response.json())
-        .then(newUserObj => {
-            if (newUserObj.error){
+        .then(updatedUserObj => {
+            if (updatedUserObj.error){
                 this.setState({
-                    error: newUserObj.error
+                    error: updatedUserObj.error
                 })
             } else {
-               this.props.signUpUser(newUserObj)
+               this.props.updateUser(updatedUserObj)
                this.props.history.push("/dashboard")
             } 
         })
     }
 
     render(){
+      
         return(
-            <div className="sign-up-div">
+            <div className="user-update-form" >
                 <Form onSubmit={this.handleSubmit} >
-                    <h1>Sign Up for Finate!</h1><br></br>
+                    <h1>Update your information</h1><br></br>
                     {this.state.error ? <p className="error">{this.state.error} </p> : null}
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGridFirstName">
                         <Form.Label>First Name</Form.Label>
-                        <Form.Control type="first_name" name="first_name" placeholder="Enter first name" value={this.state.first_name} onChange={this.handleInputChange} />
+                        <Form.Control type="first_name" name="first_name" placeholder={this.state.first_name} value={this.state.first_name} readOnly/>
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridLastName">
                         <Form.Label>Last Name</Form.Label>
-                        <Form.Control type="last_name" name="last_name" placeholder="Enter last name" value={this.state.last_name} onChange={this.handleInputChange}/>
+                        <Form.Control type="last_name" name="last_name" placeholder={this.state.last_name} value={this.state.last_name} readOnly/>
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridDOB">
                         <Form.Label>Date of Birth</Form.Label>
-                        <Form.Control type="date_of_birth" name="date_of_birth" placeholder="YYYY-MM-DD" value={this.state.date_of_birth} onChange={this.handleInputChange} />
+                        <Form.Control type="date_of_birth" name="date_of_birth" placeholder={this.state.date_of_birth} value={this.state.date_of_birth} readOnly />
                         </Form.Group>
 
                     </Form.Row>
@@ -90,10 +89,10 @@ class SignUp extends React.Component {
                         <Form.Control type="email" name="email" placeholder="Enter email" value={this.state.email} onChange={this.handleInputChange} />
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridPassword">
+                        {/* <Form.Group as={Col} controlId="formGridPassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} />
-                        </Form.Group>
+                        </Form.Group> */}
                     </Form.Row>
                     
                     <Form.Group controlId="formGridAddress1">
@@ -186,18 +185,23 @@ class SignUp extends React.Component {
                         <Form.Control type="number" placeholder="Approx. monthly income" name="avg_monthly_income" value={this.state.avg_monthly_income} onChange={this.handleInputChange}/>
                     </Form.Group>
 
-                    <Button variant="primary" type="submit">
-                        Create New Account
+                    <Button variant="primary" type="submit" onClick={this.handleSubmit} >
+                        Update Information
                     </Button>
                 </Form>
-
             </div>
         )
     }
 }
 
-const mapDispatchToProps = {
-    signUpUser: signUpUser
+const mapStateToProps = (state) => {
+    return {
+        currentUser: state.currentUser
+    }
 }
 
-export default connect(null, mapDispatchToProps)(SignUp)
+const mapDispatchToProps = {
+    updateUser: updateUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserEditForm)

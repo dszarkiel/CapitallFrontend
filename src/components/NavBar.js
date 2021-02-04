@@ -7,7 +7,6 @@ import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import moment from 'moment'
 import Logo from '../images/Logo.png'
-import UserShowCard from './UserShowCard'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 
@@ -16,7 +15,7 @@ class NavBar extends React.Component {
     constructor(){
         super();
         this.state = {
-            showHide : false
+            showModal : false
         }
     }
 
@@ -29,7 +28,22 @@ class NavBar extends React.Component {
     }
 
     handleUserShowCard = () => {
-        this.setState({ showHide: !this.state.showHide })
+        this.setState({ showModal: !this.state.showModal })
+    }
+
+    handleUserUpdateForm = () => {
+        this.setState({ showModal: !this.state.showModal })
+        this.props.history.push('/user/edit')
+    }
+
+    handleDeleteUser = () => {
+        let id = this.props.currentUser.id
+        fetch(`http://localhost:3000/users/${id}`, {method: "DELETE"})
+        .then(response=> response.json())
+        .then(() => {
+            this.setState({ showModal: !this.state.showModal })
+            this.props.history.push('/')
+        })
     }
 
     render(){
@@ -65,42 +79,83 @@ class NavBar extends React.Component {
                 </Navbar.Collapse>
                 </Navbar>
 
-                <Modal show={this.state.showHide}>
+
+
+                        {/* MODAL THAT SHOWS ALL THE CURRENT USER INFORMATION */}
+                {this.props.currentUser?
+                <Modal show={this.state.showModal} dialogClassName="user-view">
                     <Modal.Header closeButton onClick={() => this.handleUserShowCard()}>
                     <Modal.Title>Your Information</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        
+
                     <Form>
-                    <Form.Row>
 
+                <Form.Row>
                     <Form.Group as={Col} controlId="formGridFirstName">
                     <Form.Label>First Name</Form.Label>
-                    <Form.Control type="text" placeholder="Readonly input here..." readOnly plaintext/>
-                    </Form.Group>
-                    <Form.Group as={Col} controlId="formGridFirstName">
-                    <Form.Label>First Name</Form.Label>
-                    <Form.Control type="text" placeholder="Readonly input here..." readOnly plaintext/>
-                    </Form.Group>
-                    <Form.Group as={Col} controlId="formGridFirstName">
-                    <Form.Label>First Name</Form.Label>
-                    <Form.Control type="text" placeholder="Readonly input here..." readOnly plaintext/>
+                    <Form.Control type="text" placeholder={this.props.currentUser.first_name} readOnly plaintext/>
                     </Form.Group>
 
-                    </Form.Row>
+                    <Form.Group as={Col} controlId="formGridFirstName">
+                    <Form.Label>Last Name</Form.Label>
+                    <Form.Control type="text" placeholder={this.props.currentUser.last_name} readOnly plaintext/>
+                    </Form.Group>
 
-                    </Form>
+                    <Form.Group as={Col} controlId="formGridFirstName">
+                    <Form.Label>Date of Birth</Form.Label>
+                    <Form.Control type="text" placeholder={this.props.currentUser.date_of_birth} readOnly plaintext/>
+                    </Form.Group>
+                </Form.Row>
+
+                <Form.Row>
+                        <Form.Group as={Col} controlId="formGridEmail">
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control type="text" placeholder={this.props.currentUser.email} readOnly plaintext/>
+                        </Form.Group>
+
+                        <Form.Group as={Col} controlId="formGridAddress1">
+                        <Form.Label>Address</Form.Label>
+                        <Form.Control placeholder={this.props.currentUser.address} readOnly plaintext />
+                        </Form.Group>
+
+                        <Form.Group as={Col} controlId="formGridAddress2">
+                        <Form.Label>Address 2</Form.Label>
+                        <Form.Control placeholder={this.props.currentUser.address_two} readOnly plaintext/>
+                        </Form.Group>
+                </Form.Row>
+
+                <Form.Row>
+                        <Form.Group as={Col} controlId="formGridCity">
+                         <Form.Label>City</Form.Label>
+                         <Form.Control placeholder={this.props.currentUser.city} readOnly plaintext/>
+                        </Form.Group>
+                        <Form.Group as={Col} controlId="formGridCity">
+                         <Form.Label>State</Form.Label>
+                         <Form.Control placeholder={this.props.currentUser.state} readOnly plaintext/>
+                        </Form.Group>
+                        <Form.Group as={Col} controlId="formGridCity">
+                         <Form.Label>Zip</Form.Label>
+                         <Form.Control placeholder={this.props.currentUser.zipcode} readOnly plaintext/>
+                        </Form.Group>
+                </Form.Row>
+
+                </Form>
 
                     </Modal.Body>
                     <Modal.Footer>
                     <Button variant="secondary" onClick={() => this.handleUserShowCard()}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={() => this.handleUserShowCard()}>
-                        Save Changes
+                    <Button variant="primary" onClick={() => this.handleUserUpdateForm()}>
+                        Edit Information
+                    </Button>
+                    <Button variant="danger" onClick={() => this.handleDeleteUser()}>
+                        Delete Account
                     </Button>
                     </Modal.Footer>
                 </Modal>
+                : null}
 
             </div>
         )

@@ -36,8 +36,9 @@ text-align: center;
 .dashboard {
   text-align: center;
   border: 1px solid black;
+  border-radius: 5px;
   position: fixed;
-  /* margin-top: 0px; */
+
   top: 50%;
   left: 50%;
   width:98%;
@@ -51,12 +52,15 @@ text-align: center;
   margin-top: 25px;
   height: 350px;
   overflow: scroll;
+  border-radius: 5px;
+
 }
 
 .accounts-container {
   border: 2px solid black;
   margin-top: 25px;
   height: 350px;
+  border-radius: 5px;
 
 }
 
@@ -64,12 +68,15 @@ text-align: center;
   border: 2px solid black;
   margin-top: 25px;
   height: 350px;
+  border-radius: 5px;
+
 }
 
 .bills-container {
   border: 2px solid black;
   margin-top: 25px;
   height: 350px;
+  border-radius: 5px;
 
 }
 
@@ -77,6 +84,7 @@ text-align: center;
   border: 2px solid black;
   margin-top: 25px;
   height: 350px;
+  border-radius: 5px;
 
 }
 
@@ -99,4 +107,17 @@ text-align: center;
   height: 75%;
   transform: translate(-50%, -50%);
   overflow: scroll;
+}
+
+.user-view {
+  width: 80% !important;
+}
+
+.user-update-form {
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width:50%;
+  transform: translate(-50%, -50%);
 }
