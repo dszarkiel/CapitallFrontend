@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button'
 import TransactionPanelItem from './TransactionPanelItem'
 
 
+
 class TransactionsPanel extends React.Component {
 
     renderTransactions = () => {
@@ -45,7 +46,7 @@ class TransactionsPanel extends React.Component {
                 </Table>
                 </div>
                 <Button onClick={this.handleBackBtn} >Back</Button>
-                <Button onClick={this.handleCreateNewTransaction} >Create New Transaction</Button>
+                <Button onClick={this.handleCreateNewTransaction} variant="success" >Create New Transaction</Button>
 
             </div>
         )
@@ -57,5 +58,7 @@ const mapStateToProps = (state) => {
         transactions: state.transactions
     }
 }
+
+
 
 export default connect(mapStateToProps, null)(TransactionsPanel)

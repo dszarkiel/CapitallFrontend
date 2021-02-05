@@ -1,7 +1,8 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button'
 import {connect} from 'react-redux'
-import {deleteTransaction} from '../actions/transactionActions'
+import {withRouter} from 'react-router-dom'
+import {deleteTransaction, selectTransaction} from '../actions/transactionActions'
 
 class TransactionPanelItem extends React.Component {
 
@@ -12,6 +13,11 @@ class TransactionPanelItem extends React.Component {
         .then(() => {
             this.props.deleteTransaction(id)
         })
+    }
+
+    handleUpdate = (e) => {
+        this.props.selectTransaction(this.props.transaction)
+        this.props.history.push(`/transactions/edit/${e.target.id}`)
     }
     
     render(){
@@ -29,8 +35,8 @@ class TransactionPanelItem extends React.Component {
                     <th>id-{goal_id}</th>
                     <th>${amount}</th>
                     <th className="transaction-btns" >
-                    <Button size="sm">Update</Button>
-                    <Button size="sm" variant="danger" id={id} onClick={this.handleDelete} >Delete</Button>
+                    <Button size="sm" id={id} onClick={this.handleUpdate} >Update</Button>
+                    <Button size="sm" id={id} variant="danger"  onClick={this.handleDelete} >Delete</Button>
                     </th>
                     <th></th>
                 </tr>
@@ -40,7 +46,8 @@ class TransactionPanelItem extends React.Component {
 }
 
 const mapDispatchToProps = {
-    deleteTransaction: deleteTransaction
+    deleteTransaction: deleteTransaction,
+    selectTransaction: selectTransaction
 }
 
-export default connect(null, mapDispatchToProps)(TransactionPanelItem)
+export default connect(null, mapDispatchToProps)(withRouter(TransactionPanelItem))
