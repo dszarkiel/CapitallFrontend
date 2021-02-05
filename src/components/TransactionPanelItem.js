@@ -19,7 +19,7 @@ class TransactionPanelItem extends React.Component {
                     <th>${amount}</th>
                     <th className="transaction-btns" >
                     <Button size="sm">Update</Button>
-                    <Button size="sm">Delete</Button>
+                    <Button size="sm" variant="danger" >Delete</Button>
                     </th>
                     <th></th>
                 </tr>

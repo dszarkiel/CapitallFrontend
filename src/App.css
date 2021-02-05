@@ -1,7 +1,6 @@
 
 .sign-in-div {
   text-align: center;
-  /* border: 2px solid black; */
   position: fixed;
   top: 50%;
   left: 50%;
@@ -51,9 +50,16 @@ text-align: center;
   border: 2px solid black;
   margin-top: 25px;
   height: 350px;
-  overflow: scroll;
+  /* overflow: hidden; */
   border-radius: 5px;
 
+}
+.transactions-table {
+  height: 240px;
+  overflow: auto;
+}
+.transaction-view-btn {
+  margin-top: 10px;
 }
 
 .accounts-container {
@@ -69,7 +75,13 @@ text-align: center;
   margin-top: 25px;
   height: 350px;
   border-radius: 5px;
-
+}
+.budgets-table {
+  height: 240px;
+  overflow: auto;
+}
+.budgets-view-btn {
+  margin-top: 10px;
 }
 
 .bills-container {
@@ -88,9 +100,7 @@ text-align: center;
 
 }
 
-.transaction-view-btn {
-  margin-top: 35px;
-}
+
 
 /* .transaction-btns {
   padding-top: 5px;
@@ -107,6 +117,24 @@ text-align: center;
   height: 75%;
   transform: translate(-50%, -50%);
   overflow: scroll;
+}
+.transactions-panel-table {
+  height: 85%;
+  overflow: auto;
+}
+
+.transaction-form {
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width:90%;
+  height: 75%;
+  transform: translate(-50%, -50%);
+  overflow: scroll;
+  padding: 75px;
 }
 
 .user-view {

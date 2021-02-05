@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux'
 import BudgetsContainerItem from './BudgetContainerItem'
 import ListGroup from 'react-bootstrap/ListGroup'
+import Button from 'react-bootstrap/Button'
 
 class BudgetsContainer extends React.Component {
 
@@ -15,9 +16,12 @@ class BudgetsContainer extends React.Component {
         return(
             <div className="budgets-container">
                 <h2>Budgets</h2>
+                <div className="budgets-table">
                 <ListGroup variant="flush">
                 {this.renderBudgets()}
                 </ListGroup>
+                </div>
+                <Button className="budgets-view-btn" >View</Button>
             </div>
         )
     }

@@ -55,7 +55,7 @@ class NavBar extends React.Component {
                 <Navbar.Collapse id="responsive-navbar-nav">
 
                 <Container fluid>
-                    <Col lg={4}>{moment().format('MMM Do, YY')}</Col>
+                    <Col lg={4}>{moment().format('MMM Do, YYYY')}</Col>
 
                     <Col lg={4}>
                         <div className="text-center" >

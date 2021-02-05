@@ -8,6 +8,7 @@ import Dashboard from './components/Dashboard'
 import SignUp from './components/SignUp'
 import TransactionsPanel from './components/TransactionsPanel'
 import UserEditForm from './components/UserEditForm'
+import TransactionForm from './components/TransactionForm'
 
 class App extends React.Component {
   render(){
@@ -19,9 +20,10 @@ class App extends React.Component {
           <Route exact path="/" component={SignIn} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/user/edit" component={UserEditForm} />
           
           <Route exact path="/transactions" component={TransactionsPanel} />
-          <Route exact path="/user/edit" component={UserEditForm} />
+          <Route exact path="/transactions/new" component={TransactionForm} />
           </Switch>
         </div>
       </BrowserRouter>

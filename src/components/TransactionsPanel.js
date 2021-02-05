@@ -14,13 +14,18 @@ class TransactionsPanel extends React.Component {
     }
 
     handleBackBtn = () => {
-        this.props.history.push('./dashboard')
+        this.props.history.push('/dashboard')
+    }
+
+    handleCreateNewTransaction = () => {
+        this.props.history.push('/transactions/new')
     }
 
     render(){
         return(
             <div className="transactions-panel" >
                 <h2>Transactions Panel</h2>
+                <div className="transactions-panel-table">
                 <Table responsive>
                 <thead>
                     <tr>
@@ -31,16 +36,16 @@ class TransactionsPanel extends React.Component {
                     <th>To Account</th>
                     <th>Goal</th>
                     <th>Amount</th>
-                    <th></th>
+                    <th>Options</th>
                     </tr>
                 </thead>
                 <tbody>
                 {this.renderTransactions()}
                 </tbody>
                 </Table>
-
+                </div>
                 <Button onClick={this.handleBackBtn} >Back</Button>
-                <Button>Create New Transaction</Button>
+                <Button onClick={this.handleCreateNewTransaction} >Create New Transaction</Button>
 
             </div>
         )

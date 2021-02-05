@@ -20,6 +20,7 @@ class TransactionsContainer extends React.Component {
         return(
             <div className="transactions-container">
                 <h2>Transactions</h2>
+                <div className="transactions-table" >
                 <Table responsive>
                 <thead>
                     <tr>
@@ -33,6 +34,7 @@ class TransactionsContainer extends React.Component {
                 {this.renderTransactions()}
                 </tbody>
                 </Table>
+                </div>
                 <Button className="transaction-view-btn" onClick={this.handleTransactionPanel} >View</Button>
             </div>
         )
