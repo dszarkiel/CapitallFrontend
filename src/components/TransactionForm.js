@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import {Col} from 'react-bootstrap';
 import {connect} from 'react-redux'
+import { addTransaction } from '../actions/transactionActions';
 
 class TransactionFrom extends React.Component {
     state = {
@@ -49,18 +50,30 @@ class TransactionFrom extends React.Component {
     }
 
 
-    // handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     console.log(this.state)
+    handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(this.state)
 
-    //     fetch("http://localhost:3000/transactions", {
-    //         method: "POST",
-    //         headers: {"Content-Type": "application/json"},
-    //         body: JSON.stringify({
-
-    //         })
-    //     })
-    // }
+        fetch("http://localhost:3000/transactions", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                date: this.state.date,
+                description: this.state.description,
+                amount: this.state.amount,
+                budget_id: this.state.budget_id,
+                account_id: this.state.account_id,
+                to_account_id: this.state.to_account_id,
+                goal_id: this.state.goal_id,
+                category: this.state.category
+            })
+        })
+        .then(response => response.json())
+        .then(newTransObj => {
+            this.props.addTransaction(newTransObj)
+            this.props.history.push('/transactions')
+        })
+    }
 
     render(){
         return(
@@ -159,4 +172,8 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, null)(TransactionFrom)
+const mapDispatchToProps = {
+    addTransaction: addTransaction
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TransactionFrom)

@@ -1,11 +1,22 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button'
+import {connect} from 'react-redux'
+import {deleteTransaction} from '../actions/transactionActions'
 
 class TransactionPanelItem extends React.Component {
+
+    handleDelete = (e) => {
+        const id = parseInt(e.target.id)
+        fetch(`http://localhost:3000/transactions/${id}`, {method: "DELETE"})
+        .then(resp => resp.json())
+        .then(() => {
+            this.props.deleteTransaction(id)
+        })
+    }
     
     render(){
 
-        const {date, description, amount, category, account_id, to_account_id, goal_id} = this.props.transaction
+        const {id, date, description, amount, category, account_id, to_account_id, goal_id} = this.props.transaction
 
         return(
   
@@ -19,7 +30,7 @@ class TransactionPanelItem extends React.Component {
                     <th>${amount}</th>
                     <th className="transaction-btns" >
                     <Button size="sm">Update</Button>
-                    <Button size="sm" variant="danger" >Delete</Button>
+                    <Button size="sm" variant="danger" id={id} onClick={this.handleDelete} >Delete</Button>
                     </th>
                     <th></th>
                 </tr>
@@ -28,4 +39,8 @@ class TransactionPanelItem extends React.Component {
     }
 }
 
-export default TransactionPanelItem
+const mapDispatchToProps = {
+    deleteTransaction: deleteTransaction
+}
+
+export default connect(null, mapDispatchToProps)(TransactionPanelItem)
