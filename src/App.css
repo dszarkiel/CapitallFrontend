@@ -34,7 +34,7 @@ text-align: center;
 
 .dashboard {
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid maroon;
   border-radius: 5px;
   position: fixed;
 
@@ -47,10 +47,9 @@ text-align: center;
 }
 
 .transactions-container {
-  border: 2px solid black;
+  border: 1px solid maroon;
   margin-top: 25px;
   height: 350px;
-  /* overflow: hidden; */
   border-radius: 5px;
 
 }
@@ -63,7 +62,7 @@ text-align: center;
 }
 
 .accounts-container {
-  border: 2px solid black;
+  border: 1px solid maroon;
   margin-top: 25px;
   height: 350px;
   border-radius: 5px;
@@ -77,7 +76,7 @@ text-align: center;
 }
 .accounts-panel {
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid maroon;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -92,7 +91,7 @@ text-align: center;
 }
 .account-form {
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid maroon;
   border-radius: 5px;
   position: fixed;
   top: 50%;
@@ -105,7 +104,7 @@ text-align: center;
 }
 
 .budgets-container {
-  border: 2px solid black;
+  border: 1px solid maroon;
   margin-top: 25px;
   height: 350px;
   border-radius: 5px;
@@ -119,7 +118,7 @@ text-align: center;
 }
 
 .bills-container {
-  border: 2px solid black;
+  border: 1px solid maroon;
   margin-top: 25px;
   height: 350px;
   border-radius: 5px;
@@ -127,7 +126,7 @@ text-align: center;
 }
 
 .goals-container {
-  border: 2px solid black;
+  border: 1px solid maroon;
   margin-top: 25px;
   height: 350px;
   border-radius: 5px;
@@ -136,7 +135,7 @@ text-align: center;
 
 .transactions-panel {
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid maroon;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -152,7 +151,7 @@ text-align: center;
 
 .transaction-form {
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid maroon;
   border-radius: 5px;
   position: fixed;
   top: 50%;

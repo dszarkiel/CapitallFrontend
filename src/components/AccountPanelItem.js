@@ -1,9 +1,16 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button'
 import {connect} from 'react-redux'
-import { deleteAccount } from '../actions/accountActions';
+import {withRouter} from 'react-router-dom'
+import { deleteAccount, selectAccount } from '../actions/accountActions';
 
 class AccountPanelItem extends React.Component {
+
+    handleUpdate = (e) => {
+        const id = e.target.id
+        this.props.selectAccount(this.props.account)
+        this.props.history.push(`/accounts/edit/${id}`)
+    }
 
     handleDelete = (e) => {
         const id = parseInt(e.target.id)
@@ -24,8 +31,8 @@ class AccountPanelItem extends React.Component {
                     <th>{category}</th>
                     <th>${balance}</th>
                     <th className="account-btns" >
-                    <Button size="sm" id={id}>Update</Button>
-                    <Button size="sm" id={id} variant="primary" >View Transactions</Button>
+                    <Button size="sm" id={id} onClick={this.handleUpdate} >Update</Button>
+                    <Button size="sm" id={id} >View Transactions</Button>
                     <Button size="sm" id={id} variant="danger" onClick={this.handleDelete}>Delete</Button>
                     
                     
@@ -36,7 +43,8 @@ class AccountPanelItem extends React.Component {
 }
 
 const mapDispatchToProps = {
-    deleteAccount: deleteAccount
+    deleteAccount: deleteAccount,
+    selectAccount: selectAccount
 }
 
-export default connect(null, mapDispatchToProps)(AccountPanelItem)
+export default connect(null, mapDispatchToProps)(withRouter(AccountPanelItem))
