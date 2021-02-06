@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
+// import Nav from 'react-bootstrap/Nav'
 import Button from 'react-bootstrap/Button'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
@@ -60,7 +60,7 @@ class NavBar extends React.Component {
 
                     <Col lg={4}>
                         <div className="text-center" >
-                        <Navbar.Brand ><img src={Logo} height="50px" /></Navbar.Brand>
+                        <Navbar.Brand ><img src={Logo} alt="Finate" height="50px" /></Navbar.Brand>
                         </div>
                     </Col>
 

@@ -23,7 +23,6 @@ class TransactionFrom extends React.Component {
             [e.target.name]: e.target.value
         })
     }
-
     handleInputId = (e) => {
         this.setState({
             [e.target.name]: parseInt(e.target.value)
@@ -42,7 +41,6 @@ class TransactionFrom extends React.Component {
             return <option value={budgetObj.id}>{budgetObj.name}</option>
         })
     }
-
     renderAccounts = () => {
         return this.props.accounts.map(accountObj => {
             return <option value={accountObj.id}>{accountObj.name} - ${accountObj.balance}</option>
@@ -155,9 +153,8 @@ class TransactionFrom extends React.Component {
                     </Form.Group>
                 </Form.Row>
 
-                <Button variant="success" type="submit">
-                    Add Transaction 
-                </Button>
+                <Button onClick={() => this.props.history.push('/transactions')}>Cancel</Button>
+                <Button variant="success" type="submit">Add Transaction </Button>
                 </Form>
             </div>
         )

@@ -24,10 +24,6 @@ class AccountUpdateForm extends React.Component {
         })
     }
 
-    handleBackButton = () => {
-        this.props.history.push('/accounts')
-    }
-
     handleSubmit = (e) => {
         e.preventDefault()
         const id = e.target.id
@@ -36,7 +32,7 @@ class AccountUpdateForm extends React.Component {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
                 name: this.state.name, 
-                category: this. state.category, 
+                category: this.state.category, 
                 balance: this.state.balance
             })
         })
@@ -75,7 +71,7 @@ class AccountUpdateForm extends React.Component {
                     <Form.Control type="number" name="balance" placeholder="$" value={this.state.balance} onChange={this.handleBalanceChange} />
                  </Form.Group>
                 </Form.Row>
-                <Button onClick={this.handleBackButton} >Back</Button>
+                <Button onClick={() => this.props.history.push('/accounts')}>Cancel</Button>
                 <Button type="submit">Update Account</Button>
                 </Form>
             </div>

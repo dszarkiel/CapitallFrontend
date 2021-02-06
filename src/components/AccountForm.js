@@ -31,7 +31,7 @@ class AccountForm extends React.Component {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
                 name: this.state.name, 
-                category: this. state.category, 
+                category: this.state.category, 
                 balance: this.state.balance, 
                 user_id: this.props.currentUser.id
             })
@@ -71,7 +71,7 @@ class AccountForm extends React.Component {
                     <Form.Control type="number" name="balance" placeholder="$" value={this.state.balance} onChange={this.handleBalanceChange} />
                  </Form.Group>
                 </Form.Row>
-                <Button>Back</Button>
+                <Button onClick={() => this.props.history.push('/accounts')}>Cancel</Button>
                 <Button type="submit">Create Account</Button>
                 </Form>
             </div>

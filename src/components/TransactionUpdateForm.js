@@ -42,7 +42,6 @@ class TransactionUpdateForm extends React.Component {
             return <option value={budgetObj.id}>{budgetObj.name}</option>
         })
     }
-
     renderAccounts = () => {
         return this.props.accounts.map(accountObj => {
             return <option value={accountObj.id}>{accountObj.name} - ${accountObj.balance}</option>
@@ -158,12 +157,8 @@ class TransactionUpdateForm extends React.Component {
                     </Form.Group>
                 </Form.Row>
 
-                <Button variant="primary" onClick={this.handleBackButton}>
-                    Cancel
-                </Button>
-                <Button variant="success" type="submit">
-                    Update Transaction 
-                </Button>
+                <Button variant="primary" onClick={this.handleBackButton}>Cancel</Button>
+                <Button variant="success" type="submit">Update Transaction </Button>
                 </Form>
             </div>
         )
