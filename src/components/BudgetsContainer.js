@@ -21,7 +21,8 @@ class BudgetsContainer extends React.Component {
                 {this.renderBudgets()}
                 </ListGroup>
                 </div>
-                <Button className="budgets-view-btn" >View</Button>
+                <Button className="budgets-view-btn" onClick={() => this.props.history.push('/budgets')} >View</Button>
+                <Button>Test</Button>
             </div>
         )
     }

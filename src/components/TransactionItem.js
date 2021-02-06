@@ -12,7 +12,7 @@ class TransactionItem extends React.Component {
                     <th>{date}</th>
                     <th>{description}</th>
                     <th>{category}</th>
-                    <th>{amount}</th>
+                    <th>${amount}</th>
                 </tr>
 
         )

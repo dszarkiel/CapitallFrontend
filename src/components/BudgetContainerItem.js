@@ -12,7 +12,7 @@ class BudgetsContainerItem extends React.Component {
         return (
             <div>
                 <ListGroup.Item>
-                <h4>{this.props.budget.category}</h4>
+                <h4>{this.props.budget.name}</h4>
                 <div>
                 <ProgressBar striped variant="success" now={40} />
                 </div>

@@ -6,6 +6,7 @@ import budgetsReducer from './budgets'
 import currentDateReducer from './currentDate'
 import selectTransactionReducer from './selectTransaction'
 import selectAccountReducer from './selectAccount'
+import selectBudgetReducer from './selectBudget'
 
 
 export default combineReducers({
@@ -15,5 +16,6 @@ export default combineReducers({
     budgets: budgetsReducer,
     currentDate: currentDateReducer,
     selectTransaction: selectTransactionReducer,
-    selectAccount: selectAccountReducer
+    selectAccount: selectAccountReducer,
+    selectBudget: selectBudgetReducer
 })
