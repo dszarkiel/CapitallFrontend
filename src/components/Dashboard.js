@@ -23,12 +23,12 @@ class Dashboard extends React.Component {
                 <Container fluid>
                 <Row>
                     <Col lg={8}><TransactionContainer history={this.props.history}/></Col>
-                    <Col sm={4}><AccountsContainer/></Col>
+                    <Col sm={4}><AccountsContainer history={this.props.history}/></Col>
                 </Row>
                 <Row>
-                    <Col sm><BudgetsContainer/></Col>
-                    <Col md><GoalsContainer/></Col>
-                    <Col sm><BillsContainer/></Col>
+                    <Col sm><BudgetsContainer history={this.props.history}/></Col>
+                    <Col md><GoalsContainer history={this.props.history}/></Col>
+                    <Col sm><BillsContainer history={this.props.history}/></Col>
                 </Row>
                 </Container>
             </div>

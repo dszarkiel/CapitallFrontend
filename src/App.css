@@ -67,7 +67,28 @@ text-align: center;
   margin-top: 25px;
   height: 350px;
   border-radius: 5px;
-
+}
+.accounts-table {
+  height: 240px;
+  overflow: auto;
+}
+.account-view-btn {
+  margin-top: 10px;
+}
+.accounts-panel {
+  text-align: center;
+  border: 1px solid black;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width:90%;
+  height: 75%;
+  transform: translate(-50%, -50%);
+  overflow: scroll;
+}
+.accounts-panel-table {
+  height: 85%;
+  overflow: auto;
 }
 
 .budgets-container {
@@ -99,13 +120,6 @@ text-align: center;
   border-radius: 5px;
 
 }
-
-
-
-/* .transaction-btns {
-  padding-top: 5px;
-  padding-bottom: 5px;
-} */
 
 .transactions-panel {
   text-align: center;

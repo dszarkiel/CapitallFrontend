@@ -10,6 +10,7 @@ import TransactionsPanel from './components/TransactionsPanel'
 import UserEditForm from './components/UserEditForm'
 import TransactionForm from './components/TransactionForm'
 import TransactionUpdateForm from './components/TransactionUpdateForm'
+import AccountsPanel from './components/AccountsPanel'
 
 class App extends React.Component {
   render(){
@@ -26,6 +27,8 @@ class App extends React.Component {
           <Route exact path="/transactions" component={TransactionsPanel} />
           <Route exact path="/transactions/new" component={TransactionForm} />
           <Route exact path="/transactions/edit/:id" component={TransactionUpdateForm} />
+
+          <Route exact path="/accounts" component={AccountsPanel} />
           </Switch>
         </div>
       </BrowserRouter>
