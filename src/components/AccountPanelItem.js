@@ -1,8 +1,18 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button'
-import { TrashFill } from 'react-bootstrap-icons';
+import {connect} from 'react-redux'
+import { deleteAccount } from '../actions/accountActions';
 
 class AccountPanelItem extends React.Component {
+
+    handleDelete = (e) => {
+        const id = parseInt(e.target.id)
+        fetch(`http://localhost:3000/accounts/${id}`, {method: "DELETE"})
+        .then(response => response.json())
+        .then(() => {
+            this.props.deleteAccount(id)
+        })
+    }
 
     render(){
 
@@ -16,7 +26,8 @@ class AccountPanelItem extends React.Component {
                     <th className="account-btns" >
                     <Button size="sm" id={id}>Update</Button>
                     <Button size="sm" id={id} variant="primary" >View Transactions</Button>
-                    <Button size="sm" id={id} variant="danger" ><TrashFill/></Button>
+                    <Button size="sm" id={id} variant="danger" onClick={this.handleDelete}>Delete</Button>
+                    
                     
                     </th>
                 </tr>
@@ -24,4 +35,8 @@ class AccountPanelItem extends React.Component {
     }
 }
 
-export default AccountPanelItem
+const mapDispatchToProps = {
+    deleteAccount: deleteAccount
+}
+
+export default connect(null, mapDispatchToProps)(AccountPanelItem)

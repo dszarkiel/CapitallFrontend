@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
 import Button from 'react-bootstrap/Button'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
@@ -83,7 +84,7 @@ class NavBar extends React.Component {
 
                         {/* MODAL THAT SHOWS ALL THE CURRENT USER INFORMATION */}
                 {this.props.currentUser?
-                <Modal show={this.state.showModal} dialogClassName="user-view">
+                <Modal show={this.state.showModal} dialogClassName="user-view" size="lg">
                     <Modal.Header closeButton onClick={() => this.handleUserShowCard()}>
                     <Modal.Title>Your Information</Modal.Title>
                     </Modal.Header>

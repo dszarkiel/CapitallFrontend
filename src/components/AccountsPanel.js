@@ -18,9 +18,9 @@ class AccountsPanel extends React.Component {
         this.props.history.push('/dashboard')
     }
 
-    // handleCreateNewAccount = () => {
-    //     this.props.history.push('/accounts/new')
-    // }
+    handleCreateNewAccount = () => {
+        this.props.history.push('/accounts/new')
+    }
 
     render(){
         return(
