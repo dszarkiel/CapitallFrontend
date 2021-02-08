@@ -22,7 +22,6 @@ class BudgetsContainer extends React.Component {
                 </ListGroup>
                 </div>
                 <Button className="budgets-view-btn" onClick={() => this.props.history.push('/budgets')} >View</Button>
-                <Button>Test</Button>
             </div>
         )
     }
