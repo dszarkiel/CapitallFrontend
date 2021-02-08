@@ -15,6 +15,28 @@ class TransactionPanelItem extends React.Component {
         })
     }
 
+    returnAccountName = (id) => {
+        return this.props.accounts.map(acc => {
+            if (acc.id === id) {
+                return acc.name
+            }
+        })
+    }
+    returnFromAccountName = (id) => {
+        return this.props.accounts.map(acc => {
+            if (acc.id === id) {
+                return acc.name
+            }
+        })
+    }
+    // returnGoalName = (id) => {
+    //     return this.props.goals.map(goal => {
+    //         if (goal.id === id) {
+    //             return goal.name
+    //         }
+    //     })
+    // }
+
     handleUpdate = (e) => {
         this.props.selectTransaction(this.props.transaction)
         this.props.history.push(`/transactions/edit/${e.target.id}`)
@@ -30,9 +52,10 @@ class TransactionPanelItem extends React.Component {
                     <th>{date}</th>
                     <th>{description}</th>
                     <th>{category}</th>
-                    <th>id-{account_id}</th>
-                    <th>id-{to_account_id}</th>
-                    <th>id-{goal_id}</th>
+                    <th>{this.returnAccountName(account_id)}</th>
+                    <th>{this.returnFromAccountName(to_account_id)}</th>
+                    <th></th>
+                    {/* <th>{this.returnGoalName(goal_id)}</th> */}
                     <th>${amount}</th>
                     <th className="transaction-btns" >
                     <Button size="sm" id={id} onClick={this.handleUpdate} >Update</Button>
@@ -45,9 +68,17 @@ class TransactionPanelItem extends React.Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        accounts: state.accounts,
+        budgets: state.budgets,
+        goals: state.goals
+    }
+}
+
 const mapDispatchToProps = {
     deleteTransaction: deleteTransaction,
     selectTransaction: selectTransaction
 }
 
-export default connect(null, mapDispatchToProps)(withRouter(TransactionPanelItem))
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(TransactionPanelItem))
