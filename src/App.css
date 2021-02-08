@@ -207,5 +207,10 @@ text-align: center;
 
 }
 
+.mr-sm-2 {
+  margin: 5px;
+  text-align: center;
+  float: right;
+}
 
 

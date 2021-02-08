@@ -29,6 +29,13 @@ class TransactionPanelItem extends React.Component {
             }
         })
     }
+    returnBudgetName = (id) => {
+        return this.props.budgets.map(budget => {
+            if (budget.id === id) {
+                return budget.name
+            }
+        })
+    }
     // returnGoalName = (id) => {
     //     return this.props.goals.map(goal => {
     //         if (goal.id === id) {
@@ -44,7 +51,7 @@ class TransactionPanelItem extends React.Component {
     
     render(){
 
-        const {id, date, description, amount, category, account_id, to_account_id, goal_id} = this.props.transaction
+        const {id, date, description, amount, category, budget_id, account_id, to_account_id, goal_id} = this.props.transaction
 
         return(
   
@@ -52,6 +59,7 @@ class TransactionPanelItem extends React.Component {
                     <th>{date}</th>
                     <th>{description}</th>
                     <th>{category}</th>
+                    <th>{this.returnBudgetName(budget_id)}</th>
                     <th>{this.returnAccountName(account_id)}</th>
                     <th>{this.returnFromAccountName(to_account_id)}</th>
                     <th></th>

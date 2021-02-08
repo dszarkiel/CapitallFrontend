@@ -7,7 +7,8 @@ import Button from 'react-bootstrap/Button'
 class TransactionsContainer extends React.Component {
 
     renderTransactions = () => {
-        return this.props.transactions.map(transObj => {
+        let sortedTransactions = this.props.transactions.slice().sort((a,b) => b.date > a.date ? 1: -1)
+        return sortedTransactions.map(transObj => {
             return <TransactionItem key={transObj.id} transaction={transObj} />
         })
     }
