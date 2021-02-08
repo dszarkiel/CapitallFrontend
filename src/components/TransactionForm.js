@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form'
+import Alert from 'react-bootstrap/Alert'
 import Button from 'react-bootstrap/Button'
 import {Col} from 'react-bootstrap';
 import {connect} from 'react-redux'
@@ -66,15 +67,33 @@ class TransactionFrom extends React.Component {
         })
         .then(response => response.json())
         .then(newTransObj => {
+            if (newTransObj.error){
+                this.setState({
+                    error: newTransObj.error
+                })
+            } else {
             this.props.addTransaction(newTransObj)
             this.props.history.push('/transactions')
+            }
         })
     }
 
     render(){
         return(
             <div className="transaction-form" >
-                <h1>Transaction Form</h1>
+
+                {this.state.error ?
+                    <Alert className="alert" variant="danger" onClose={() => this.setState({error: ''})} dismissible>
+                        <Alert.Heading>Oops! Something went wrong!</Alert.Heading>
+                        <ul>
+                            {this.state.error.map(message => {
+                                return <li>{message}</li>
+                            })}
+                        </ul>
+                    </Alert>
+                    : null }
+
+                    <h1>New Transaction</h1>
                 <Form onSubmit={this.handleSubmit} >
                 <Form.Row>
                     <Form.Group as={Col} controlId="formGridDate">

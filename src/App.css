@@ -99,7 +99,13 @@ text-align: center;
   height: 75%;
   transform: translate(-50%, -50%);
   overflow: scroll;
-  padding: 75px;
+  padding-top: 10px;
+  padding-left: 75px;
+  padding-right: 75px;
+}
+
+.alert {
+  margin-top: 25px;
 }
 
 
@@ -143,7 +149,9 @@ text-align: center;
   height: 75%;
   transform: translate(-50%, -50%);
   overflow: scroll;
-  padding: 75px;
+  padding-top: 10px;
+  padding-left: 75px;
+  padding-right: 75px;
 }
 
 /* ////////////// BUDGETS CSS ////////////  */
@@ -213,4 +221,7 @@ text-align: center;
   float: right;
 }
 
-
+  ul {
+    text-align: center;
+    list-style-position: inside;
+}

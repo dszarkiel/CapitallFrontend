@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
+import Alert from 'react-bootstrap/Alert'
 import {Col} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import {connect} from 'react-redux';
@@ -9,7 +10,8 @@ class AccountForm extends React.Component {
     state = {
         name: "",
         category: "",
-        balance: ""
+        balance: "",
+        error: ""
     }
 
     handleInputChange = (e) => {
@@ -38,14 +40,32 @@ class AccountForm extends React.Component {
         })
         .then(response => response.json())
         .then(newAcc => {
+            if (newAcc.error){
+                this.setState({
+                    error: newAcc.error
+                })
+            } else {
             this.props.addAccount(newAcc)
             this.props.history.push('/accounts')
+            }
         })
     }
 
     render(){
         return(
             <div className="account-form">
+
+                    {this.state.error ?
+                    <Alert className="alert" variant="danger" onClose={() => this.setState({error: ''})} dismissible>
+                        <Alert.Heading>Oops! Something went wrong!</Alert.Heading>
+                        <ul>
+                            {this.state.error.map(message => {
+                                return <li>{message}</li>
+                            })}
+                        </ul>
+                    </Alert>
+                    : null}
+
                 <h2>New Account</h2>
                 <Form onSubmit={this.handleSubmit} >
                 <Form.Row>
