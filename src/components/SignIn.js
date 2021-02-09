@@ -26,13 +26,14 @@ class SignIn extends React.Component {
             body: JSON.stringify(this.state)
         })
         .then(response => response.json())
-        .then(user => {
-            if (user.error){
+        .then(userObj => {
+            if (userObj.error){
                 this.setState({
-                    error: user.error
+                    error: userObj.error
                 })
             } else {
-               this.props.signInUser(user)
+               localStorage.setItem("jwt_token", userObj.token)
+               this.props.signInUser(userObj.user)
                this.props.history.push("/dashboard")
             } 
         })       

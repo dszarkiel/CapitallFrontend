@@ -3,6 +3,7 @@ const budgets = (state=[], action) => {
 
     switch(action.type){
         case "SIGN_IN_USER":
+        case "CURRENT_USER":
             return action.user.budgets
         case "ADD_BUDGET":
             return [...state, action.budget]

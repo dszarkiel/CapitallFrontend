@@ -11,7 +11,6 @@ import Logo from '../images/Logo.png'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 
-
 class NavBar extends React.Component {
     constructor(){
         super();

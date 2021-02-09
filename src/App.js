@@ -17,7 +17,32 @@ import BudgetsPanel from './components/BudgetsPanel'
 import BudgetForm from './components/BudgetFrom'
 import BudgetUpdateForm from './components/BudgetUpdateForm'
 
+import {connect} from 'react-redux'
+import {currentUser} from './actions/userActions'
+
 class App extends React.Component {
+
+  componentDidMount(){
+
+    const token = localStorage.getItem("jwt_token")
+
+    if (!token) {
+        this.props.history.push("/")
+    } else {
+        fetch('http://localhost:3000/api/v1/current_user', {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        .then(response => response.json())
+        .then(userObj => {
+          console.log(userObj.user)
+            this.props.currentUser(userObj.user)
+        })
+    }
+  }
+
   render(){
     return (
       <BrowserRouter>
@@ -48,4 +73,8 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = {
+  currentUser: currentUser
+}
+
+export default connect(null, mapDispatchToProps)(App);

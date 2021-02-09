@@ -1,6 +1,7 @@
 const currentUser = (state=null, action) => {
     switch(action.type){
         case "SIGN_IN_USER":
+        case "CURRENT_USER":
             return action.user
         case "SIGN_UP_USER":
             return action.user

@@ -4,6 +4,12 @@ export const signInUser = (user) => {
         user: user
     }
 }
+export const currentUser = (user) => {
+    return {
+        type: "CURRENT_USER",
+        user: user
+    }
+}
 
 export const signUpUser = (user) => {
     return {

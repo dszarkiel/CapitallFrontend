@@ -3,6 +3,7 @@ const transactions = (state=[], action) => {
 
     switch(action.type){
         case "SIGN_IN_USER":
+        case "CURRENT_USER":
             return action.user.transactions
         case "ADD_TRANSACTION":
             return [...state, action.transaction]

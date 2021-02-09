@@ -11,12 +11,6 @@ import BillsContainer from './BillsContainer'
 
 class Dashboard extends React.Component {
 
-    componentDidMount(){
-        if (!this.props.currentUser) {
-            this.props.history.push("/")
-        }
-    }
-
     render(){
         return(
             <div className="dashboard" >
