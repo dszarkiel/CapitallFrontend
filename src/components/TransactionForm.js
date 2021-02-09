@@ -30,9 +30,9 @@ class TransactionFrom extends React.Component {
         })
     }
     handleInputAmt = (e) => {
-        this.setState({
-            [e.target.name]: parseFloat(e.target.value)
-        })
+            this.setState({
+                [e.target.name]: parseFloat(e.target.value)
+            })
     }
 
 

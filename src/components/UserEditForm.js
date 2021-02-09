@@ -88,11 +88,6 @@ class UserEditForm extends React.Component {
                         <Form.Label>Email</Form.Label>
                         <Form.Control type="email" name="email" placeholder="Enter email" value={this.state.email} onChange={this.handleInputChange} />
                         </Form.Group>
-
-                        {/* <Form.Group as={Col} controlId="formGridPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} />
-                        </Form.Group> */}
                     </Form.Row>
                     
                     <Form.Group controlId="formGridAddress1">
@@ -184,10 +179,8 @@ class UserEditForm extends React.Component {
                         <Form.Label>Average Monthly Income</Form.Label>
                         <Form.Control type="number" placeholder="Approx. monthly income" name="avg_monthly_income" value={this.state.avg_monthly_income} onChange={this.handleInputChange}/>
                     </Form.Group>
-
-                    <Button variant="primary" type="submit" onClick={this.handleSubmit} >
-                        Update Information
-                    </Button>
+                    <Button onClick={() => {this.props.history.push('/dashboard')}}>Back</Button>
+                    <Button variant="success" type="submit" onClick={this.handleSubmit}>Update Information</Button>
                 </Form>
             </div>
         )

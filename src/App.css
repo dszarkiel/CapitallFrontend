@@ -37,9 +37,8 @@ body {
   padding-top: 200px;
 }
 
-th {
-  position: sticky;
-  top: 0;
+thead {
+  table-layout:fixed;
 }
 
 .btn-group {

@@ -27,10 +27,10 @@ class BudgetPanelItem extends React.Component {
 
         return(
                  <tr>
-                    <td>{name}</td>
-                    <td>{category}</td>
-                    <td>${amount} / Month</td>
-                    <td className="budget-btns" >
+                    <td class="align-middle">{name}</td>
+                    <td class="align-middle">{category}</td>
+                    <td class="align-middle">${amount} / Month</td>
+                    <td class="align-middle" >
                     <Button size="sm" id={id} onClick={this.handleUpdate}>Update</Button>
                     <Button size="sm" id={id} variant="danger" onClick={this.handleDelete}>Delete</Button>
                     </td>

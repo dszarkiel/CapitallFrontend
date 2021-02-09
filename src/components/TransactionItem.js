@@ -9,10 +9,10 @@ class TransactionItem extends React.Component {
         return(
   
                 <tr>
-                    <td>{date}</td>
-                    <td>{description}</td>
-                    <td>{category}</td>
-                    <td>${amount}</td>
+                    <td class="align-middle">{date}</td>
+                    <td class="align-middle">{description}</td>
+                    <td class="align-middle">{category}</td>
+                    <td class="align-middle">${amount}</td>
                 </tr>
 
         )
