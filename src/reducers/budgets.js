@@ -5,6 +5,8 @@ const budgets = (state=[], action) => {
         case "SIGN_IN_USER":
         case "CURRENT_USER":
             return action.user.budgets
+        case "SIGN_OUT_USER":
+            return []
         case "ADD_BUDGET":
             return [...state, action.budget]
         case "UPDATE_BUDGET":

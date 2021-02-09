@@ -1,6 +1,5 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar'
-// import Nav from 'react-bootstrap/Nav'
 import Button from 'react-bootstrap/Button'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
@@ -10,6 +9,7 @@ import moment from 'moment'
 import Logo from '../images/Logo.png'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
+import {signOutUser} from '../actions/userActions'
 
 class NavBar extends React.Component {
     constructor(){
@@ -24,6 +24,12 @@ class NavBar extends React.Component {
     }
 
     handleSignIn = () => {
+        this.props.history.push("/")
+    }
+
+    handleSignOut = () => {
+        localStorage.removeItem("jwt_token")
+        this.props.SignOutUser()
         this.props.history.push("/")
     }
 
@@ -67,7 +73,7 @@ class NavBar extends React.Component {
                         {this.props.currentUser ?
                         <div className="text-right">    
                         <Button variant="info" onClick={this.handleUserShowCard} >Account</Button>
-                        <Button variant="info">Sign Out</Button>
+                        <Button variant="info" onClick={this.handleSignOut} >Sign Out</Button>
                         </div>
                             :
                             <div className="text-right" >
@@ -168,4 +174,8 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(withRouter(NavBar))
+const mapDispatchToProps = {
+    SignOutUser: signOutUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(NavBar))

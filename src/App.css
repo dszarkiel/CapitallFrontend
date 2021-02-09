@@ -51,7 +51,7 @@ thead {
   border: 1px solid maroon;
   border-radius: 5px;
   position: fixed;
-
+  margin-top: 10px;
   top: 50%;
   left: 50%;
   width:98%;
@@ -229,7 +229,43 @@ thead {
   margin-top: 25px;
   height: 350px;
   border-radius: 5px;
-
+}
+.goals-table {
+  height: 230px;
+  overflow: auto;
+}
+.goals-view-btn {
+  margin-top: 20px;
+}
+.goals-panel {
+  text-align: center;
+  border: 1px solid maroon;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width:90%;
+  height: 75%;
+  transform: translate(-50%, -50%);
+  overflow: scroll;
+}
+.goals-panel-table {
+  height: 85%;
+  overflow: auto;
+}
+.goal-form {
+  text-align: center;
+  border: 1px solid maroon;
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width:90%;
+  height: 75%;
+  transform: translate(-50%, -50%);
+  overflow: scroll;
+  padding-top: 10px;
+  padding-left: 75px;
+  padding-right: 75px;
 }
 
 .mr-sm-2 {

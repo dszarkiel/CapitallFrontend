@@ -5,6 +5,8 @@ const accounts = (state=[], action) => {
         case "SIGN_IN_USER":
         case "CURRENT_USER":
             return action.user.accounts
+        case "SIGN_OUT_USER":
+            return []
         case "ADD_ACCOUNT":
             return [...state, action.account]
         case "UPDATE_ACCOUNT":

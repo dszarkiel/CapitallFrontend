@@ -7,6 +7,8 @@ const currentUser = (state=null, action) => {
             return action.user
         case "UPDATE_USER":
             return action.user
+        case "SIGN_OUT_USER":
+            return null
         default:
             return state
     }

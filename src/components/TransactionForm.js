@@ -47,6 +47,11 @@ class TransactionFrom extends React.Component {
             return <option value={accountObj.id}>{accountObj.name} - ${accountObj.balance}</option>
         })
     }
+    renderGoals = () => {
+        return this.props.goals.map(goalObj => {
+            return <option value={goalObj.id}>{goalObj.name}</option>
+        })
+    }
 
 
     handleSubmit = (e) => {
@@ -143,6 +148,14 @@ class TransactionFrom extends React.Component {
                     <Form.Control as="select" name="budget_id" value={this.state.budget_id} onChange={this.handleInputId}>
                         <option>Choose...</option>
                         {this.renderBudgets()}
+                    </Form.Control>
+                </Form.Group>
+
+                <Form.Group as={Col} controlId="formGridGoalId">
+                    <Form.Label>Goal</Form.Label>
+                    <Form.Control as="select" name="goal_id" value={this.state.goal_id} onChange={this.handleInputId}>
+                        <option>Choose...</option>
+                        {this.renderGoals()}
                     </Form.Control>
                 </Form.Group>
                 </Form.Row>

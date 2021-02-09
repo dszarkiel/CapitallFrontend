@@ -56,15 +56,15 @@ class TransactionPanelItem extends React.Component {
         return(
   
                 <tr size="sm">
-                    <td class="align-middle">{date}</td>
-                    <td class="align-middle">{description}</td>
-                    <td class="align-middle">{category}</td>
-                    <td class="align-middle">{this.returnBudgetName(budget_id)}</td>
-                    <td class="align-middle">{this.returnAccountName(account_id)}</td>
-                    <td class="align-middle">{this.returnFromAccountName(to_account_id)}</td>
-                    <td class="align-middle"></td>
+                    <td className="align-middle">{date}</td>
+                    <td className="align-middle">{description}</td>
+                    <td className="align-middle">{category}</td>
+                    <td className="align-middle">{this.returnBudgetName(budget_id)}</td>
+                    <td className="align-middle">{this.returnAccountName(account_id)}</td>
+                    <td className="align-middle">{this.returnFromAccountName(to_account_id)}</td>
+                    <td className="align-middle"></td>
                     {/* <th>{this.returnGoalName(goal_id)}</th> */}
-                    <td class="align-middle">${amount}</td>
+                    <td className="align-middle">${amount}</td>
                     <td className="transaction-btns" >
                     <Button size="sm" id={id} onClick={this.handleUpdate} >Update</Button>
                     <Button size="sm" id={id} variant="danger"  onClick={this.handleDelete} >Delete</Button>

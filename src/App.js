@@ -1,5 +1,6 @@
 import React from 'react';
 import {BrowserRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom'
 import {Route, Switch} from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar'
@@ -16,6 +17,9 @@ import AccountUpdateForm from './components/AccountUpdateForm'
 import BudgetsPanel from './components/BudgetsPanel'
 import BudgetForm from './components/BudgetFrom'
 import BudgetUpdateForm from './components/BudgetUpdateForm'
+import GoalsPanel from './components/GoalsPanel'
+import GoalForm from './components/GoalForm'
+import GoalUpdateForm from './components/GoalUpdateForm'
 
 import {connect} from 'react-redux'
 import {currentUser} from './actions/userActions'
@@ -27,7 +31,8 @@ class App extends React.Component {
     const token = localStorage.getItem("jwt_token")
 
     if (!token) {
-        this.props.history.push("/")
+      console.log("test")
+        // this.props.history.push("/")
     } else {
         fetch('http://localhost:3000/api/v1/current_user', {
             method: "GET",
@@ -37,7 +42,6 @@ class App extends React.Component {
         })
         .then(response => response.json())
         .then(userObj => {
-          console.log(userObj.user)
             this.props.currentUser(userObj.user)
         })
     }
@@ -65,6 +69,10 @@ class App extends React.Component {
           <Route exact path="/budgets" component={BudgetsPanel} />
           <Route exact path="/budgets/new" component={BudgetForm} />
           <Route exact path="/budgets/edit/:id" component={BudgetUpdateForm} />
+
+          <Route exact path="/goals" component={GoalsPanel} />
+          <Route exact path="/goals/new" component={GoalForm} />
+          <Route exact path="/goals/edit/:id" component={GoalUpdateForm} />
 
           </Switch>
         </div>

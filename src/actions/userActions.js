@@ -17,6 +17,11 @@ export const signUpUser = (user) => {
         user: user
     }
 }
+export const signOutUser = () => {
+    return {
+        type: "SIGN_OUT_USER",
+    }
+}
 
 export const updateUser = (user) => {
     return {

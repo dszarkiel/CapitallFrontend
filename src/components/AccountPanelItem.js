@@ -27,10 +27,10 @@ class AccountPanelItem extends React.Component {
 
         return(
                  <tr>
-                    <th class="align-middle">{name}</th>
-                    <th class="align-middle">{category}</th>
-                    <th class="align-middle">${balance}</th>
-                    <th class="align-middle" >
+                    <th className="align-middle">{name}</th>
+                    <th className="align-middle">{category}</th>
+                    <th className="align-middle">${balance}</th>
+                    <th className="align-middle" >
                     <Button size="sm" id={id} onClick={this.handleUpdate} >Update</Button>
                     <Button size="sm" id={id} >View Transactions</Button>
                     <Button size="sm" id={id} variant="danger" onClick={this.handleDelete}>Delete</Button>

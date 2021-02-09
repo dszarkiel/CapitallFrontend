@@ -5,6 +5,8 @@ const transactions = (state=[], action) => {
         case "SIGN_IN_USER":
         case "CURRENT_USER":
             return action.user.transactions
+        case "SIGN_OUT_USER":
+            return []
         case "ADD_TRANSACTION":
             return [...state, action.transaction]
         case "DELETE_TRANSACTION":
