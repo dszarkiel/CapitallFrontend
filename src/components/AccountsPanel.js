@@ -19,7 +19,7 @@ class AccountsPanel extends React.Component {
             <div className="accounts-panel" >
                 <h2>Accounts Panel</h2>
                 <div className="accounts-panel-table">
-                <Table responsive>
+                <Table striped bordered hover size="lg" responsive>
                 <thead>
                     <tr>
                     <th>Name</th>

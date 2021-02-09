@@ -53,9 +53,9 @@ class BudgetsContainerItem extends React.Component {
         return (
             <div>
                 <ListGroup.Item>
-                <h4>{this.props.budget.name}</h4>
+                <h5>{this.props.budget.name}</h5>
                 <div>
-                <ProgressBar striped variant={this.renderBarStatus()} now={this.renderRatio()} />
+                <ProgressBar animated striped variant={this.renderBarStatus()} now={this.renderRatio()} />
                 </div>
                 </ListGroup.Item>
             </div>

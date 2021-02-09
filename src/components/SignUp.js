@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form'
+import Alert from 'react-bootstrap/Alert'
 import Button from 'react-bootstrap/Button'
 import {Col} from 'react-bootstrap';
 import {connect} from 'react-redux'
@@ -64,8 +65,19 @@ class SignUp extends React.Component {
         return(
             <div className="sign-up-div">
                 <Form onSubmit={this.handleSubmit} >
+
+                {this.state.error ?
+                    <Alert className="alert" variant="danger" onClose={() => this.setState({error: ''})} dismissible>
+                        <Alert.Heading>Oops! Something went wrong!</Alert.Heading>
+                        <ul>
+                            {this.state.error.map(message => {
+                                return <li>{message}</li>
+                            })}
+                        </ul>
+                    </Alert>
+                    : null }
+
                     <h1>Sign Up for Finate!</h1><br></br>
-                    {this.state.error ? <p className="error">{this.state.error} </p> : null}
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGridFirstName">
                         <Form.Label>First Name</Form.Label>

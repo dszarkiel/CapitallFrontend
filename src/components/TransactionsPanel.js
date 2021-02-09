@@ -59,7 +59,7 @@ class TransactionsPanel extends React.Component {
                 </Container>
 
                 <div className="transactions-panel-table">
-                <Table responsive>
+                <Table striped bordered hover size="sm" responsive>
                 <thead>
                     <tr>
                     <th>Date</th>

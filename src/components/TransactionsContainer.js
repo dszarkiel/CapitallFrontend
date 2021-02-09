@@ -22,7 +22,7 @@ class TransactionsContainer extends React.Component {
             <div className="transactions-container">
                 <h2>Transactions</h2>
                 <div className="transactions-table" >
-                <Table responsive>
+                <Table striped bordered hover size="sm" responsive>
                 <thead>
                     <tr>
                     <th>Date</th>

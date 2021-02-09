@@ -27,13 +27,13 @@ class BudgetPanelItem extends React.Component {
 
         return(
                  <tr>
-                    <th>{name}</th>
-                    <th>{category}</th>
-                    <th>${amount} / Month</th>
-                    <th className="budget-btns" >
+                    <td>{name}</td>
+                    <td>{category}</td>
+                    <td>${amount} / Month</td>
+                    <td className="budget-btns" >
                     <Button size="sm" id={id} onClick={this.handleUpdate}>Update</Button>
                     <Button size="sm" id={id} variant="danger" onClick={this.handleDelete}>Delete</Button>
-                    </th>
+                    </td>
                 </tr>
         )
     }

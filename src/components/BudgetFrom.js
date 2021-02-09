@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
+import Alert from 'react-bootstrap/Alert'
 import {Col} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import {connect} from 'react-redux';
@@ -10,7 +11,8 @@ class BudgetForm extends React.Component {
     state = {
         name: "",
         category: "",
-        amount: ""
+        amount: "",
+        error: ""
     }
 
     handleInputChange = (e) => {
@@ -41,14 +43,32 @@ class BudgetForm extends React.Component {
         })
         .then(response => response.json())
         .then(newBudget => {
+            if (newBudget.error){
+                this.setState({
+                    error: newBudget.error
+                })
+            } else {
             this.props.addBudget(newBudget)
             this.props.history.push('/budgets')
+            }
         })
     }
 
     render(){
         return(
             <div className="budget-form">
+
+                    {this.state.error ?
+                    <Alert className="alert" variant="danger" onClose={() => this.setState({error: ''})} dismissible>
+                        <Alert.Heading>Oops! Something went wrong!</Alert.Heading>
+                        <ul>
+                            {this.state.error.map(message => {
+                                return <li>{message}</li>
+                            })}
+                        </ul>
+                    </Alert>
+                    : null}
+
                 <h2>New Budget</h2>
                 <Form onSubmit={this.handleSubmit} >
                 <Form.Row>

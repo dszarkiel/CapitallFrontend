@@ -19,7 +19,7 @@ class BudgetsPanel extends React.Component {
             <div className="budgets-panel" >
                 <h2>Budgets Panel</h2>
                 <div className="budgets-panel-table">
-                <Table responsive>
+                <Table striped bordered hover size="lg" responsive>
                 <thead>
                     <tr>
                     <th>Name</th>

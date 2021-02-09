@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
+import Alert from 'react-bootstrap/Alert';
 import {Col} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import {connect} from 'react-redux';
@@ -9,7 +10,8 @@ class BudgetUpdateForm extends React.Component {
     state = {
         name: this.props.selectBudget.name,
         category: this.props.selectBudget.category,
-        amount: this.props.selectBudget.amount
+        amount: this.props.selectBudget.amount,
+        error: ""
     }
 
     handleInputChange = (e) => {
@@ -38,14 +40,32 @@ class BudgetUpdateForm extends React.Component {
         })
         .then(response => response.json())
         .then(updatedBudget => {
+            if (updatedBudget.error){
+                this.setState({
+                    error: updatedBudget.error
+                })
+            } else {
             this.props.updateBudget(updatedBudget)
             this.props.history.push('/budgets')
+            }
         })
     }
 
     render(){
         return(
             <div className="budget-form">
+
+                    {this.state.error ?
+                    <Alert className="alert" variant="danger" onClose={() => this.setState({error: ''})} dismissible>
+                        <Alert.Heading>Oops! Something went wrong!</Alert.Heading>
+                        <ul>
+                            {this.state.error.map(message => {
+                                return <li>{message}</li>
+                            })}
+                        </ul>
+                    </Alert>
+                    : null}
+                
                 <h2>Update Budget</h2>
                 <Form id={this.props.selectBudget.id} onSubmit={this.handleSubmit} >
                 <Form.Row>
