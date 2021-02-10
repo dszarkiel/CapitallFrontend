@@ -16,38 +16,34 @@ class TransactionPanelItem extends React.Component {
     }
 
     returnAccountName = (id) => {
-        return this.props.accounts.map(acc => {
-            if (acc.id === id) {
-                return acc.name
-            }
-        })
-    }
-    returnFromAccountName = (id) => {
-        return this.props.accounts.map(acc => {
-            if (acc.id === id) {
-                return acc.name
-            } else {
-                return ""
-            }
-        })
+        let accountName;
+        let a = this.props.accounts.find(account => account.id === id)
+        if (a) {
+            accountName = a.name
+        } else {
+            accountName = "-"
+        }
+        return accountName
     }
     returnBudgetName = (id) => {
-        return this.props.budgets.map(budget => {
-            if (budget.id === id) {
-                return budget.name
-            } else {
-                return ""
-            }
-        })
+        let budgetName;
+        let b = this.props.budgets.find(budget => budget.id === id)
+        if (b) {
+            budgetName = b.name
+        } else {
+            budgetName = "-"
+        }
+        return budgetName
     }
     returnGoalName = (id) => {
-        return this.props.goals.map(goal => {
-            if (goal.id === id) {
-                return goal.name
-            } else {
-                return "-"
-            }
-        })
+     let goalName;
+        let g = this.props.goals.find(goal => goal.id === id)
+        if (g) {
+            goalName = g.name
+        } else {
+            goalName = "-"
+        }
+        return goalName
     }
 
     handleUpdate = (e) => {
@@ -67,7 +63,7 @@ class TransactionPanelItem extends React.Component {
                     <td className="align-middle">{category}</td>
                     <td className="align-middle">{this.returnBudgetName(budget_id)}</td>
                     <td className="align-middle">{this.returnAccountName(account_id)}</td>
-                    <td className="align-middle">{this.returnFromAccountName(to_account_id)}</td>
+                    <td className="align-middle">{this.returnAccountName(to_account_id)}</td>
                     <td className="align-middle">{this.returnGoalName(goal_id)}</td>
                     <td className="align-middle">${amount}</td>
                     <td className="transaction-btns" >

@@ -19,6 +19,7 @@ import BudgetUpdateForm from './components/BudgetUpdateForm'
 import GoalsPanel from './components/GoalsPanel'
 import GoalForm from './components/GoalForm'
 import GoalUpdateForm from './components/GoalUpdateForm'
+import {withRouter} from 'react-router-dom'
 
 import {connect} from 'react-redux'
 import {currentUser} from './actions/userActions'
@@ -28,9 +29,9 @@ class App extends React.Component {
   componentDidMount(){
 
     const token = localStorage.getItem("jwt_token")
-
     if (!token) {
-        // this.props.history.push("/")
+      console.log("NO TOKEN")
+        this.props.history.push("/")
     } else {
         fetch('http://localhost:3000/api/v1/current_user', {
             method: "GET",
@@ -48,7 +49,7 @@ class App extends React.Component {
   render(){
 
     return (
-      <BrowserRouter>
+      // <BrowserRouter>
         <div className="App">
           <NavBar />
           <Switch>
@@ -75,7 +76,7 @@ class App extends React.Component {
 
           </Switch>
         </div>
-      </BrowserRouter>
+    //  </BrowserRouter>
     );
   }
 }
@@ -84,4 +85,4 @@ const mapDispatchToProps = {
   currentUser: currentUser
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(withRouter(App));
