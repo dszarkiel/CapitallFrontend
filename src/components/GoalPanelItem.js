@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import { deleteGoal, selectGoal, updateGoal } from '../actions/goalsActions';
-
+import moment from 'moment'
 
 class GoalPanelItem extends React.Component {
 
@@ -37,6 +37,27 @@ class GoalPanelItem extends React.Component {
         })
     }
 
+    renderDaysLeft = () => {
+        let daysLeft = Math.abs(moment().diff(this.props.goal.due_date, "days"))
+        return daysLeft
+    }
+
+    renderAmountLeft = () => {
+        let goalTransactions = [0];
+        let balanceRemaining = 0;
+        const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+        this.props.transactions.map(transaction => {
+            if (transaction.goal_id === this.props.goal.id) {
+                goalTransactions.push(transaction.amount)
+            }
+        })
+        goalTransactions = Math.round(goalTransactions.reduce(reducer))
+        balanceRemaining = this.props.goal.amount - goalTransactions
+        console.log(balanceRemaining)
+        return balanceRemaining
+    }
+
     render(){
 
         const {id, name, description, amount, due_date, complete} = this.props.goal
@@ -47,14 +68,14 @@ class GoalPanelItem extends React.Component {
                     <td className="align-middle">{due_date}</td>
                     <td className="align-middle">{description}</td>
                     <td className="align-middle">${amount}</td>
-                    <td className="align-middle">$00 left</td>
-                    <td className="align-middle"> X Days</td>
+                    <td className="align-middle">${this.renderAmountLeft()} left</td>
+                    <td className="align-middle">{this.renderDaysLeft()}</td>
                     <td className="align-middle">
                     {complete ? 
                     <Button size="sm" disabled variant="success" >Completed</Button>
                     :
                     <span>
-                    <Button size="sm" id={id} variant="success" onClick={this.handleMarkComplete} >Mark Complete</Button>
+                    <Button size="sm" id={id} variant="success" onClick={this.handleMarkComplete} >Complete</Button>
                     <Button size="sm" id={id} onClick={this.handleUpdate} >Update</Button>
                     </span>
                     }
@@ -65,10 +86,16 @@ class GoalPanelItem extends React.Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        transactions: state.transactions
+    }
+}
+
 const mapDispatchToProps = {
     deleteGoal: deleteGoal,
     selectGoal: selectGoal,
     updateGoal: updateGoal
 }
 
-export default connect(null, mapDispatchToProps)(withRouter(GoalPanelItem))
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(GoalPanelItem))

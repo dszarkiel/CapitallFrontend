@@ -26,6 +26,8 @@ class TransactionPanelItem extends React.Component {
         return this.props.accounts.map(acc => {
             if (acc.id === id) {
                 return acc.name
+            } else {
+                return ""
             }
         })
     }
@@ -33,16 +35,20 @@ class TransactionPanelItem extends React.Component {
         return this.props.budgets.map(budget => {
             if (budget.id === id) {
                 return budget.name
+            } else {
+                return ""
             }
         })
     }
-    // returnGoalName = (id) => {
-    //     return this.props.goals.map(goal => {
-    //         if (goal.id === id) {
-    //             return goal.name
-    //         }
-    //     })
-    // }
+    returnGoalName = (id) => {
+        return this.props.goals.map(goal => {
+            if (goal.id === id) {
+                return goal.name
+            } else {
+                return "-"
+            }
+        })
+    }
 
     handleUpdate = (e) => {
         this.props.selectTransaction(this.props.transaction)
@@ -62,8 +68,7 @@ class TransactionPanelItem extends React.Component {
                     <td className="align-middle">{this.returnBudgetName(budget_id)}</td>
                     <td className="align-middle">{this.returnAccountName(account_id)}</td>
                     <td className="align-middle">{this.returnFromAccountName(to_account_id)}</td>
-                    <td className="align-middle"></td>
-                    {/* <th>{this.returnGoalName(goal_id)}</th> */}
+                    <td className="align-middle">{this.returnGoalName(goal_id)}</td>
                     <td className="align-middle">${amount}</td>
                     <td className="transaction-btns" >
                     <Button size="sm" id={id} onClick={this.handleUpdate} >Update</Button>

@@ -9,11 +9,18 @@ import BudgetsContainer from './BudgetsContainer'
 import GoalsContainer from './GoalsContainer'
 import BillsContainer from './BillsContainer'
 
+import {Spring} from 'react-spring/renderprops';
+
 class Dashboard extends React.Component {
 
     render(){
         return(
-            <div className="dashboard" >
+
+            <Spring config={{friction: 50}}
+            from={{ opacity: 0 }}
+            to={{ opacity: 1 }}>
+            {props => 
+            <div className="dashboard" style={props} >
                 <Container fluid>
                 <Row>
                     <Col lg={8}><TransactionContainer history={this.props.history}/></Col>
@@ -26,6 +33,9 @@ class Dashboard extends React.Component {
                 </Row>
                 </Container>
             </div>
+            }
+            </Spring>
+
         )
     }
 }

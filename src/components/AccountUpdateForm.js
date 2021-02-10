@@ -5,7 +5,6 @@ import {Col} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import {connect} from 'react-redux';
 import { updateAccount } from '../actions/accountActions';
-import { updateBudget } from '../actions/budgetActions';
 
 class AccountUpdateForm extends React.Component {
     state = {

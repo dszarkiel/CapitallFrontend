@@ -1,7 +1,6 @@
 import React from 'react';
 import {BrowserRouter} from 'react-router-dom';
-import {withRouter} from 'react-router-dom'
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, __RouterContext} from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar'
 import SignIn from './components/SignIn'
@@ -31,7 +30,6 @@ class App extends React.Component {
     const token = localStorage.getItem("jwt_token")
 
     if (!token) {
-      console.log("test")
         // this.props.history.push("/")
     } else {
         fetch('http://localhost:3000/api/v1/current_user', {
@@ -48,6 +46,7 @@ class App extends React.Component {
   }
 
   render(){
+
     return (
       <BrowserRouter>
         <div className="App">

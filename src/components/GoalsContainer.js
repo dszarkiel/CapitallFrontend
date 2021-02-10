@@ -3,8 +3,6 @@ import {connect} from 'react-redux'
 import GoalContainerItem from './GoalContainerItem'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
-import TransactionForm from './TransactionForm';
-import TransactionsContainer from './TransactionsContainer';
 
 class GoalsContainer extends React.Component {
 

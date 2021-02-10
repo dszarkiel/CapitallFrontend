@@ -64,7 +64,7 @@ class GoalForm extends React.Component {
                         <Alert.Heading>Oops! Something went wrong!</Alert.Heading>
                         <ul>
                             {this.state.error.map(message => {
-                                return <li>{message}</li>
+                                return <li key="message">{message}</li>
                             })}
                         </ul>
                     </Alert>

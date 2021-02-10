@@ -4,6 +4,8 @@ import Button from 'react-bootstrap/Button'
 import {connect} from 'react-redux'
 import {signInUser} from '../actions/userActions'
 
+import {Spring} from 'react-spring/renderprops';
+
 class SignIn extends React.Component {
     state = {
         email: "dom@gmail.com",
@@ -44,6 +46,13 @@ class SignIn extends React.Component {
             <div className="sign-in-div">
                 <Form onSubmit={this.handleSubmit} >
                     <Form.Group controlId="formBasicEmail">
+
+                    <Spring config={{friction: 100}}
+                    from={{ opacity: 0 }}
+                    to={{ opacity: 1 }}>
+                    {props => <h1 style={props}>Welcome To Finate</h1>}
+                    </Spring><br></br>
+
                         <h3>Email Address</h3>
                         {this.state.error ? <p className="error" style={{color: "red"}}>{this.state.error}</p> : null}
                         <Form.Control type="email" name="email" placeholder="Enter email" value={this.state.email} onChange={this.handleInputChange} />

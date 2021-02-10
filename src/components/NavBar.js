@@ -87,7 +87,7 @@ class NavBar extends React.Component {
 
 
 
-                        {/* MODAL THAT SHOWS ALL THE CURRENT USER INFORMATION */}
+                {/* MODAL THAT SHOWS ALL THE CURRENT USER INFORMATION */}
                 {this.props.currentUser?
                 <Modal show={this.state.showModal} dialogClassName="user-view" size="lg">
                     <Modal.Header closeButton onClick={() => this.handleUserShowCard()}>
