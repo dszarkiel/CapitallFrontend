@@ -4,7 +4,6 @@ import Alert from 'react-bootstrap/Alert'
 import {Col} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import {connect} from 'react-redux';
-// import moment from 'moment'
 import { addGoal } from '../actions/goalsActions';
 
 class GoalForm extends React.Component {

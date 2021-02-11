@@ -1,6 +1,6 @@
 import React from 'react';
-import {BrowserRouter} from 'react-router-dom';
 import {Route, Switch, __RouterContext} from 'react-router-dom';
+import {withRouter} from 'react-router-dom'
 import './App.css';
 import NavBar from './components/NavBar'
 import SignIn from './components/SignIn'
@@ -19,7 +19,9 @@ import BudgetUpdateForm from './components/BudgetUpdateForm'
 import GoalsPanel from './components/GoalsPanel'
 import GoalForm from './components/GoalForm'
 import GoalUpdateForm from './components/GoalUpdateForm'
-import {withRouter} from 'react-router-dom'
+import BillsPanel from './components/BillsPanel'
+import BillForm from './components/BillForm'
+import BillUpdateForm from './components/BillUpdateForm'
 
 import {connect} from 'react-redux'
 import {currentUser} from './actions/userActions'
@@ -73,6 +75,11 @@ class App extends React.Component {
           <Route exact path="/goals" component={GoalsPanel} />
           <Route exact path="/goals/new" component={GoalForm} />
           <Route exact path="/goals/edit/:id" component={GoalUpdateForm} />
+
+          <Route exact path="/bills" component={BillsPanel} />
+          <Route exact path="/bills/new" component={BillForm} />
+          <Route exact path="/bills/edit/:id" component={BillUpdateForm} />
+
 
           </Switch>
         </div>

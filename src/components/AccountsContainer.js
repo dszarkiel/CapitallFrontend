@@ -11,10 +11,6 @@ class AccountsContainer extends React.Component {
         })
     }
 
-    handleViewAccounts = () => {
-        this.props.history.push('/accounts')
-    }
-
     render(){
         return(
             <div className="accounts-container">
@@ -22,7 +18,7 @@ class AccountsContainer extends React.Component {
                 <div className="accounts-table" >
                 {this.renderAccounts()}
                 </div>
-                <Button className="account-view-btn" onClick={this.handleViewAccounts} >View</Button>
+                <Button className="account-view-btn" onClick={() => this.props.history.push('/accounts')} >View</Button>
             </div>
         )
     }

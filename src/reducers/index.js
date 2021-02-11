@@ -4,11 +4,12 @@ import transactionsReducer from './transactions'
 import accountsReducer from './accounts'
 import budgetsReducer from './budgets'
 import goalsReducer from './goals.js'
-import currentDateReducer from './currentDate'
+import billsReducer from './bills'
 import selectTransactionReducer from './selectTransaction'
 import selectAccountReducer from './selectAccount'
 import selectBudgetReducer from './selectBudget'
-import selectGoalReducer from './selectGoal';
+import selectGoalReducer from './selectGoal'
+import selectBillReducer from './selectBill'
 
 
 export default combineReducers({
@@ -17,9 +18,10 @@ export default combineReducers({
     accounts: accountsReducer,
     budgets: budgetsReducer,
     goals: goalsReducer, 
-    currentDate: currentDateReducer,
+    bills: billsReducer,
     selectTransaction: selectTransactionReducer,
     selectAccount: selectAccountReducer,
     selectBudget: selectBudgetReducer,
-    selectGoal: selectGoalReducer
+    selectGoal: selectGoalReducer,
+    selectBill: selectBillReducer
 })
