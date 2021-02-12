@@ -11,6 +11,13 @@ import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import {signOutUser} from '../actions/userActions'
 
+import Nav from 'react-bootstrap/Nav'
+import Dropdown from 'react-bootstrap/Dropdown'
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import SplitButton from 'react-bootstrap/Dropdown'
+import ButtonGroup from 'react-bootstrap/Dropdown'
+import {Search} from 'react-bootstrap-icons'
+
 class NavBar extends React.Component {
     constructor(){
         super();
@@ -54,14 +61,14 @@ class NavBar extends React.Component {
 
     render(){
         return(
-            <div>
+            <div className="nav-div">
                 <Navbar collapseOnSelect expand="lg" bg="light" variant="light" fixed="top">
 
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
 
                 <Container fluid>
-                    <Col lg={4}>{moment().format('MMM Do, YYYY')}</Col>
+                    <Col lg={4}><h3 className="nav-date">{moment().format('MMM Do, YYYY')}</h3></Col>
 
                     <Col lg={4}>
                         <div className="text-center" >
@@ -72,13 +79,25 @@ class NavBar extends React.Component {
                     <Col lg={4}>        
                         {this.props.currentUser ?
                         <div className="text-right">    
-                        <Button variant="info" onClick={this.handleUserShowCard} >Account</Button>
-                        <Button variant="info" onClick={this.handleSignOut} >Sign Out</Button>
+                        {/* <Button variant="info" onClick={this.handleUserShowCard} >Account</Button>
+                        <Button variant="info" onClick={this.handleSignOut} >Sign Out</Button> */}
+                        <DropdownButton
+                        menuAlign="right"
+                        title="Menu"
+                        variant=""
+                        drop="down"
+                        id="dropdown-menu-align-right"
+                        >
+                        <Dropdown.Item eventKey="1" onClick={this.handleUserShowCard}>Account</Dropdown.Item>
+                        <Dropdown.Divider />
+                        <Dropdown.Item eventKey="4" onClick={this.handleSignOut}>Sign Out</Dropdown.Item>
+                        </DropdownButton>
                         </div>
                             :
                             <div className="text-right" >
                         <Button variant="info" onClick={this.handleSignIn}>Sign In</Button>
                         <Button variant="info" onClick={this.handleSignUp}>Sign Up</Button>
+                        
                         </div>
                     }</Col>
                 </Container>

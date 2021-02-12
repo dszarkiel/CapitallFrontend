@@ -35,7 +35,6 @@ class Dashboard extends React.Component {
             </div>
             }
             </Spring>
-
         )
     }
 }
