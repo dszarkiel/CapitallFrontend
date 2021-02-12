@@ -11,12 +11,8 @@ import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import {signOutUser} from '../actions/userActions'
 
-import Nav from 'react-bootstrap/Nav'
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
-import SplitButton from 'react-bootstrap/Dropdown'
-import ButtonGroup from 'react-bootstrap/Dropdown'
-import {Search} from 'react-bootstrap-icons'
 
 class NavBar extends React.Component {
     constructor(){
@@ -55,6 +51,7 @@ class NavBar extends React.Component {
         .then(response=> response.json())
         .then(() => {
             this.setState({ showModal: !this.state.showModal })
+            this.props.SignOutUser()
             this.props.history.push('/')
         })
     }

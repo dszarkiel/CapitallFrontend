@@ -16,7 +16,7 @@ class Dashboard extends React.Component {
     render(){
         return(
 
-            <Spring config={{friction: 50}}
+            <Spring config={{friction: 40}}
             from={{ opacity: 0 }}
             to={{ opacity: 1 }}>
             {props => 

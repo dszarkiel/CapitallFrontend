@@ -54,7 +54,6 @@ class GoalPanelItem extends React.Component {
         })
         goalTransactions = Math.round(goalTransactions.reduce(reducer))
         balanceRemaining = this.props.goal.amount - goalTransactions
-        console.log(balanceRemaining)
         return balanceRemaining
     }
 

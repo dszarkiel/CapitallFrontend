@@ -3,6 +3,7 @@ import {Route, Switch, __RouterContext} from 'react-router-dom';
 import {withRouter} from 'react-router-dom'
 import './App.css';
 import NavBar from './components/NavBar'
+import Footer from './components/Footer'
 import SignIn from './components/SignIn'
 import Dashboard from './components/Dashboard'
 import SignUp from './components/SignUp'
@@ -32,8 +33,8 @@ class App extends React.Component {
   componentDidMount(){
 
     const token = localStorage.getItem("jwt_token")
-    if (!token) {
-      console.log("NO TOKEN")
+    if (!token || this.props.currentUser ) {
+        localStorage.removeItem("jwt_token")
         this.props.history.push("/")
     } else {
         fetch('http://localhost:3000/api/v1/current_user', {
@@ -83,6 +84,7 @@ class App extends React.Component {
 
 
           </Switch>
+          <Footer/>
         </div>
     );
   }
