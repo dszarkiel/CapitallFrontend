@@ -52,7 +52,7 @@ class SignIn extends React.Component {
                 <Card className="shadow-lg p-3 mb-5 bg-white rounded">
 
                 <Container fluid>
-                <div class="row g-0">
+                <div className="row g-0">
                                 <Col md={4} className="introLogo" style={{ width: '50%' }}>
                                     <Card.Img src={Logo} />
                                 </Col>

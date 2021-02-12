@@ -31,6 +31,7 @@ class BudgetPanelItem extends React.Component {
                     <td className="align-middle">{category}</td>
                     <td className="align-middle">${amount} / Month</td>
                     <td className="align-middle" >
+                    <Button size="sm" id={id} onClick={() => this.props.history.push('/budgetview')}>View</Button>
                     <Button size="sm" id={id} onClick={this.handleUpdate}>Update</Button>
                     <Button size="sm" id={id} variant="danger" onClick={this.handleDelete}>Delete</Button>
                     </td>

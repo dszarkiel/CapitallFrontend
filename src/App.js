@@ -24,6 +24,7 @@ import GoalUpdateForm from './components/GoalUpdateForm'
 import BillsPanel from './components/BillsPanel'
 import BillForm from './components/BillForm'
 import BillUpdateForm from './components/BillUpdateForm'
+import BudgetView from './components/BudgetView';
 
 import {connect} from 'react-redux'
 import {currentUser} from './actions/userActions'
@@ -81,6 +82,9 @@ class App extends React.Component {
           <Route exact path="/bills" component={BillsPanel} />
           <Route exact path="/bills/new" component={BillForm} />
           <Route exact path="/bills/edit/:id" component={BillUpdateForm} />
+
+
+          <Route exact path="/budgetview" component={BudgetView} />
 
 
           </Switch>
