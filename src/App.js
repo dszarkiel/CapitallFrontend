@@ -33,7 +33,7 @@ class App extends React.Component {
   componentDidMount(){
 
     const token = localStorage.getItem("jwt_token")
-    if (!token || this.props.currentUser ) {
+    if (!token || !this.props.currentUser ) {
         localStorage.removeItem("jwt_token")
         this.props.history.push("/")
     } else {

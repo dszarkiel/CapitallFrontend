@@ -72,7 +72,7 @@ class SignIn extends React.Component {
                                     </p>
                                     </div>
                                     }
-                                    </Spring><br></br>
+                                    </Spring>
                                     </Card.Title>
                                     <Card.Text>
                                     <Form onSubmit={this.handleSubmit} >
@@ -83,7 +83,7 @@ class SignIn extends React.Component {
                                         <h3>Email Address</h3>
                                         {this.state.error ? <p className="error" style={{color: "red"}}>{this.state.error}</p> : null}
                                         <Form.Control type="email" name="email" placeholder="Enter email" value={this.state.email} onChange={this.handleInputChange} />
-                                    </Form.Group><br></br>
+                                    </Form.Group>
 
                                     <Form.Group controlId="formBasicPassword">
                                         <h3>Password</h3>

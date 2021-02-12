@@ -81,8 +81,9 @@ class NavBar extends React.Component {
                         <DropdownButton
                         menuAlign="right"
                         title="Menu"
-                        variant=""
+                        variant="light"
                         drop="down"
+                        size="lg"
                         id="dropdown-menu-align-right"
                         >
                         <Dropdown.Item eventKey="1" onClick={this.handleUserShowCard}>Account</Dropdown.Item>

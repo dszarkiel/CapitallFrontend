@@ -32,14 +32,14 @@ class AccountPanelItem extends React.Component {
 
         return(
                  <tr>
-                    <th className="align-middle">{name}</th>
-                    <th className="align-middle">{category}</th>
-                    <th className="align-middle">${balance}</th>
-                    <th className="align-middle" >
+                    <td className="align-middle">{name}</td>
+                    <td className="align-middle">{category}</td>
+                    <td className="align-middle">${balance}</td>
+                    <td className="align-middle" >
                     <Button size="sm" id={id} onClick={this.handleUpdate} >Update</Button>
                     <Button size="sm" id={id} onClick={this.hanldeTransactionView}>View Transactions</Button>
                     <Button size="sm" id={id} variant="danger" onClick={this.handleDelete}>Delete</Button>
-                    </th>
+                    </td>
                 </tr>
         )
     }

@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button'
 import {Col} from 'react-bootstrap';
 import {connect} from 'react-redux'
 import {signUpUser} from '../actions/userActions'
+import Modal from 'react-bootstrap/Modal'
 
 class SignUp extends React.Component {
     state = {
@@ -19,7 +20,8 @@ class SignUp extends React.Component {
         state: "",
         zipcode: "",
         avg_monthly_income: 0,
-        error: ""
+        error: "",
+        showModal : true
     }
 
     handleInputChange = (e) => {
@@ -52,7 +54,8 @@ class SignUp extends React.Component {
         .then(newUserObj => {
             if (newUserObj.error){
                 this.setState({
-                    error: newUserObj.error
+                    error: newUserObj.error,
+                    showModal: true
                 })
             } else {
                this.props.signUpUser(newUserObj)
@@ -61,23 +64,33 @@ class SignUp extends React.Component {
         })
     }
 
+    handleError = () => {
+        this.setState({ showModal: !this.state.showModal })
+    }
+
     render(){
         return(
             <div className="sign-up-div">
+                
+                                {this.state.error ?
+                                <Modal show={this.state.showModal} dialogClassName="user-view" size="lg">
+                                    <Modal.Header closeButton onClick={() => this.handleError()}>
+                                    <Alert.Heading>Oops! Something went wrong!</Alert.Heading>                
+                                    </Modal.Header>
+                                    <Modal.Body>    
+                                    <Alert className="alert" variant="danger" onClose={() => this.setState({error: ''})}>
+                                        <ul>
+                                            {this.state.error.map(message => {
+                                                return <li id={message}>{message}</li>
+                                            })}
+                                        </ul>
+                                    </Alert>
+                                    </Modal.Body>
+                                </Modal>
+                                : null}
+                                
                 <Form onSubmit={this.handleSubmit} >
-
-                {this.state.error ?
-                    <Alert className="alert" variant="danger" onClose={() => this.setState({error: ''})} dismissible>
-                        <Alert.Heading>Oops! Something went wrong!</Alert.Heading>
-                        <ul>
-                            {this.state.error.map(message => {
-                                return <li>{message}</li>
-                            })}
-                        </ul>
-                    </Alert>
-                    : null }
-
-                    <h1>Sign Up for Finate!</h1><br></br>
+                    <h1>Create New Account</h1>
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGridFirstName">
                         <Form.Label>First Name</Form.Label>

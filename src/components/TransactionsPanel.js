@@ -4,7 +4,7 @@ import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button'
 import TransactionPanelItem from './TransactionPanelItem'
 import Form from 'react-bootstrap/Form'
-import {FormControl, Container, Row, Col} from 'react-bootstrap';
+import {Container, Row, Col} from 'react-bootstrap';
 import {Search} from 'react-bootstrap-icons'
 
 class TransactionsPanel extends React.Component {
@@ -31,28 +31,43 @@ class TransactionsPanel extends React.Component {
 
     render(){
         return(
-            <div className="transactions-panel" >
-                <Container>
+            <div className="transactions-panel shadow-lg rounded" >
+                <Container fluid>
                 <Row>
-
-                <Col>
-                <Form inline>
-
-                <Form.Group as={Col} controlId="formGridSearch">
-                <FormControl type="text" name="searchDescription" onChange={this.handleInputChange} placeholder="Search Description" className="mr-sm-2"  />
-                </Form.Group>
-
-                </Form>
+                <Col sm>    
+                        <Form inline>
+                        <Form.Label htmlFor="inlineFormInputName2" srOnly>
+                            Search By Description
+                        </Form.Label>
+                        <Form.Control
+                            className="mb-2 mr-sm-2"
+                            id="inlineFormInputName2"
+                            style={{margin: "8px"}} 
+                            type="text" 
+                            name="searchDescription" 
+                            onChange={this.handleInputChange} 
+                            placeholder="Search Description"
+                        />
+                        <Form.Label htmlFor="inlineFormInputName2" srOnly>
+                            Search By Amount
+                        </Form.Label>
+                        <Form.Control
+                            className="mb-2 mr-sm-2"
+                            id="inlineFormInputName2"
+                            style={{margin: "8px"}} 
+                            type="number" 
+                            name="searchAmount" 
+                            onChange={this.handleInputChange} 
+                            placeholder="Search Amount"
+                        />
+                        </Form>
                 </Col>
 
-                <Col><h2>Transactions Panel</h2> </Col>
+                <Col sm >
+                    <h2 style={{margin: "8px"}}>Transactions Panel</h2> 
+                </Col>
 
-                <Col>
-                <Form inline>   
-                <Form.Group as={Col} controlId="formGridSearch">
-                <FormControl type="number" name="searchAmount" onChange={this.handleInputChange} placeholder="Search Amount" className="mr-sm-2" />
-                </Form.Group>
-                </Form>
+                <Col sm >
                 </Col>
 
                 </Row>
