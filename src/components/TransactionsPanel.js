@@ -94,7 +94,7 @@ class TransactionsPanel extends React.Component {
                 </Table>
                 </div>
                 <Button onClick={() => this.props.history.push('/dashboard')}>Back</Button>
-                <Button onClick={() => this.props.history.push('/transactions/new')} variant="success">Create New Transaction</Button>
+                <Button onClick={() => this.props.history.push('/transactions/new')} variant="success">Add New Transaction</Button>
 
             </div>
         )

@@ -66,7 +66,7 @@ class AccountUpdateForm extends React.Component {
                     </Alert>
                     : null}
 
-                <h2>New Account</h2>
+                <h2>Update Account</h2>
                 <Form id={this.props.selectAccount.id} onSubmit={this.handleSubmit} >
                 <Form.Row>
                 <Form.Group as={Col} controlId="formGridName">

@@ -34,7 +34,7 @@ class AccountsPanel extends React.Component {
                 </Table>
                 </div>
                 <Button onClick={() => this.props.history.push('/dashboard')}>Back</Button>
-                <Button onClick={() => this.props.history.push('/accounts/new')} variant="success">Create New Transaction</Button>
+                <Button onClick={() => this.props.history.push('/accounts/new')} variant="success">Add New Account</Button>
 
             </div>
         )

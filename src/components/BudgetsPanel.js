@@ -16,7 +16,7 @@ class BudgetsPanel extends React.Component {
 
     render(){
         return(
-            <div className="budgets-panel" >
+            <div className="budgets-panel shadow-lg rounded" >
                 <h2>Budgets Panel</h2>
                 <div className="budgets-panel-table">
                 <Table striped bordered hover size="lg" responsive>
@@ -34,7 +34,7 @@ class BudgetsPanel extends React.Component {
                 </Table>
                 </div>
                 <Button onClick={() => this.props.history.push('/dashboard')}>Back</Button>
-                <Button onClick={() => this.props.history.push('/budgets/new')} variant="success">Create New Budget</Button>
+                <Button onClick={() => this.props.history.push('/budgets/new')} variant="success">Add New Budget</Button>
 
             </div>
         )

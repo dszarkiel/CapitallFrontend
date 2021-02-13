@@ -183,7 +183,7 @@ class TransactionFrom extends React.Component {
                     </Form.Group>
                 </Form.Row>
 
-                <Button onClick={() => this.props.history.push('/transactions')}>Cancel</Button>
+                <Button onClick={() => this.props.history.goBack()}>Cancel</Button>
                 <Button variant="success" type="submit">Add Transaction </Button>
                 </Form>
             </div>

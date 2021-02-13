@@ -80,10 +80,6 @@ class TransactionUpdateForm extends React.Component {
         })
     }
 
-    handleBackButton = () => {
-        this.props.history.push('/transactions')
-    }
-
     render(){
         return(
             <div className="transaction-form" >
@@ -176,7 +172,7 @@ class TransactionUpdateForm extends React.Component {
                     </Form.Group>
                 </Form.Row>
 
-                <Button variant="primary" onClick={this.handleBackButton}>Cancel</Button>
+                <Button variant="primary" onClick={() => this.props.history.goBack()}>Cancel</Button>
                 <Button variant="success" type="submit">Update Transaction </Button>
                 </Form>
             </div>
