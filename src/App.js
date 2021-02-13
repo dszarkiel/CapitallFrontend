@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch, __RouterContext} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import {withRouter} from 'react-router-dom'
 import './App.css';
 import NavBar from './components/NavBar'
@@ -25,6 +25,7 @@ import BillsPanel from './components/BillsPanel'
 import BillForm from './components/BillForm'
 import BillUpdateForm from './components/BillUpdateForm'
 import BudgetView from './components/BudgetView';
+import GoalView from './components/GoalView'
 
 import {connect} from 'react-redux'
 import {currentUser} from './actions/userActions'
@@ -85,6 +86,7 @@ class App extends React.Component {
 
 
           <Route exact path="/budgetview" component={BudgetView} />
+          <Route exact path="/goalview" component={GoalView} />
 
 
           </Switch>

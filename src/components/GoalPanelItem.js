@@ -37,6 +37,11 @@ class GoalPanelItem extends React.Component {
         })
     }
 
+    handleView = () => {
+        this.props.selectGoal(this.props.goal)
+        this.props.history.push('/goalview')
+    }
+
     renderDaysLeft = () => {
         let daysLeft = Math.abs(moment().diff(this.props.goal.due_date, "days"))
         return daysLeft
@@ -75,6 +80,7 @@ class GoalPanelItem extends React.Component {
                     :
                     <span>
                     <Button size="sm" id={id} variant="success" onClick={this.handleMarkComplete} >Complete</Button>
+                    <Button size="sm" id={id} onClick={this.handleView}>View</Button>
                     <Button size="sm" id={id} onClick={this.handleUpdate} >Update</Button>
                     </span>
                     }
