@@ -1,7 +1,7 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
 import {connect} from 'react-redux';
-import TransactionItem from './TransactionItem'
+import TransactionItem from './TransactionContainerItem'
 import Button from 'react-bootstrap/Button'
 
 class TransactionsContainer extends React.Component {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-class TransactionItem extends React.Component {
+class TransactionContainerItem extends React.Component {
     
     render(){
 
@@ -19,4 +19,4 @@ class TransactionItem extends React.Component {
     }
 }
 
-export default TransactionItem
+export default TransactionContainerItem

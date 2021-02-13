@@ -6,7 +6,8 @@ import BillContainerItem from './BillContainerItem'
 class BillsContainer extends React.Component {
 
     renderBills = () => {
-        return this.props.bills.map(bill => {
+        let sortedBills = this.props.bills.slice().sort((a,b) => b.due_date > a.due_date ? -1: 1)
+        return sortedBills.map(bill => {
             return <BillContainerItem key={bill.id} bill={bill} />
         })
     }
