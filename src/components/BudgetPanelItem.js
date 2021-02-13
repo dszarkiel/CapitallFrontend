@@ -34,7 +34,7 @@ class BudgetPanelItem extends React.Component {
                  <tr>
                     <td className="align-middle">{name}</td>
                     <td className="align-middle">{category}</td>
-                    <td className="align-middle">${amount} / Month</td>
+                    <td className="align-middle">${amount.toLocaleString()} / Month</td>
                     <td className="align-middle" >
                     <Button size="sm" id={id} onClick={this.handleView}>View</Button>
                     <Button size="sm" id={id} onClick={this.handleUpdate}>Update</Button>

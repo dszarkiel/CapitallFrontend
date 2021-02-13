@@ -39,7 +39,7 @@ class BillPanelItem extends React.Component {
         return(
                  <tr>
                     <td className="align-middle">{name}</td>
-                    <td className="align-middle">${amount}</td>
+                    <td className="align-middle">${amount.toLocaleString()}</td>
                     <td className="align-middle">{due_date}</td>
                     <td className="align-middle">{this.renderAutopay(id)}</td>
                     <td className="align-middle" >

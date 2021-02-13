@@ -65,7 +65,7 @@ class TransactionPanelItem extends React.Component {
                     <td className="align-middle">{this.returnAccountName(account_id)}</td>
                     <td className="align-middle">{this.returnAccountName(to_account_id)}</td>
                     <td className="align-middle">{this.returnGoalName(goal_id)}</td>
-                    <td className="align-middle">${amount}</td>
+                    <td className="align-middle">${amount.toLocaleString()}</td>
                     <td className="transaction-btns" >
                     <Button size="sm" id={id} onClick={this.handleUpdate} >Update</Button>
                     <Button size="sm" id={id} variant="danger"  onClick={this.handleDelete} >Delete</Button>

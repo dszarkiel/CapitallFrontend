@@ -21,7 +21,7 @@ class AccountPanelItem extends React.Component {
         })
     }
 
-    hanldeTransactionView = () => {
+    handleTransactionView = () => {
         this.props.selectAccount(this.props.account)
         this.props.history.push(`/accounts/${this.props.account.id}/transactions`)
     }
@@ -34,10 +34,10 @@ class AccountPanelItem extends React.Component {
                  <tr>
                     <td className="align-middle">{name}</td>
                     <td className="align-middle">{category}</td>
-                    <td className="align-middle">${balance}</td>
+                    <td className="align-middle">${balance.toLocaleString()}</td>
                     <td className="align-middle" >
                     <Button size="sm" id={id} onClick={this.handleUpdate} >Update</Button>
-                    <Button size="sm" id={id} onClick={this.hanldeTransactionView}>View Transactions</Button>
+                    <Button size="sm" id={id} onClick={this.handleTransactionView}>View Transactions</Button>
                     <Button size="sm" id={id} variant="danger" onClick={this.handleDelete}>Delete</Button>
                     </td>
                 </tr>

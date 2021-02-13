@@ -59,7 +59,7 @@ class GoalPanelItem extends React.Component {
         })
         goalTransactions = Math.round(goalTransactions.reduce(reducer))
         balanceRemaining = this.props.goal.amount - goalTransactions
-        return balanceRemaining
+        return balanceRemaining.toLocaleString()
     }
 
     render(){
@@ -71,7 +71,7 @@ class GoalPanelItem extends React.Component {
                     <td className="align-middle">{name}</td>
                     <td className="align-middle">{due_date}</td>
                     <td className="align-middle">{description}</td>
-                    <td className="align-middle">${amount}</td>
+                    <td className="align-middle">${amount.toLocaleString()}</td>
                     <td className="align-middle">${this.renderAmountLeft()} left</td>
                     <td className="align-middle">{this.renderDaysLeft()}</td>
                     <td className="align-middle">

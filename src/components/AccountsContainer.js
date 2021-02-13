@@ -14,12 +14,6 @@ class AccountsContainer extends React.Component {
         netWorth: 0
     }
 
-    // renderAccounts = () => {
-    //     return this.props.accounts.map(acc => {
-    //         return <AccountContainerItem key={acc.id} account={acc} />
-    //     })
-    // }
-
     calculateAssets = () => {
         let assetAccountAmt = [0];
         const reducer = (accumulator, currentValue) => accumulator + currentValue;
@@ -56,10 +50,6 @@ class AccountsContainer extends React.Component {
             investments: investments,
             netWorth: netWorth
         })
-        // console.log(netWorth)
-        // console.log(assets)
-        // console.log(liabilities)
-        // console.log(investments)
     }
 
     render(){
@@ -71,8 +61,8 @@ class AccountsContainer extends React.Component {
                 <ListGroup.Item>
                     <Container fluid>
                     <Row>
-                    <Col sm><h4>Assets</h4></Col>
-                    <Col sm><h4 className="assets">${this.state.assets}</h4></Col>
+                    <Col sm><h5>Assets</h5></Col>
+                    <Col sm><h5 className="assets">${this.state.assets.toLocaleString()}</h5></Col>
                     </Row>
                     </Container>
                 </ListGroup.Item>
@@ -80,8 +70,8 @@ class AccountsContainer extends React.Component {
                 <ListGroup.Item>
                     <Container fluid>
                     <Row>
-                    <Col sm><h4>Liabilities</h4></Col>
-                    <Col sm><h4 className="liabilities">${this.state.liabilities}</h4></Col>
+                    <Col sm><h5>Liabilities</h5></Col>
+                    <Col sm><h5 className="liabilities">${this.state.liabilities.toLocaleString()}</h5></Col>
                     </Row>
                     </Container>
                 </ListGroup.Item>
@@ -89,8 +79,8 @@ class AccountsContainer extends React.Component {
                 <ListGroup.Item>
                     <Container fluid>
                     <Row>
-                    <Col sm><h4>Investments</h4></Col>
-                    <Col sm><h4 className="assets">${this.state.investments}</h4></Col>
+                    <Col sm><h5>Investments</h5></Col>
+                    <Col sm><h5 className="assets">${this.state.investments.toLocaleString()}</h5></Col>
                     </Row>
                     </Container>
                 </ListGroup.Item>
@@ -99,7 +89,7 @@ class AccountsContainer extends React.Component {
                     <Container fluid>
                     <Row>
                     <Col sm><h4>Net Worth</h4></Col>
-                    <Col sm><h4>${this.state.netWorth}</h4></Col>
+                    <Col sm><h4>${this.state.netWorth.toLocaleString()}</h4></Col>
                     </Row>
                     </Container>
                 </ListGroup.Item>

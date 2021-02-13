@@ -12,7 +12,7 @@ class TransactionItem extends React.Component {
                     <td className="align-middle">{date}</td>
                     <td className="align-middle">{description}</td>
                     <td className="align-middle">{category}</td>
-                    <td className="align-middle">${amount}</td>
+                    <td className="align-middle">${amount.toLocaleString()}</td>
                 </tr>
 
         )
