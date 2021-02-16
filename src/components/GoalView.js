@@ -6,7 +6,6 @@ import Container from 'react-bootstrap/Container'
 import { Doughnut } from 'react-chartjs-2';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button'
-import moment from 'moment'
 import GoalViewItem from './GoalViewItem'
 
 class GoalView extends React.Component {

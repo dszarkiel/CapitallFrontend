@@ -68,7 +68,7 @@ class TransactionPanelItem extends React.Component {
                     <td className="align-middle">${amount.toLocaleString()}</td>
                     <td className="transaction-btns" >
                     <Button size="sm" id={id} onClick={this.handleUpdate} >Update</Button>
-                    <Button size="sm" id={id} variant="danger"  onClick={this.handleDelete} >Delete</Button>
+                    <Button size="sm" id={id} variant="danger" onClick={this.handleDelete}>Delete</Button>
                     </td>
                     <th></th>
                 </tr>

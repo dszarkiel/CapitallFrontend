@@ -119,6 +119,7 @@ thead {
   padding-top: 10px;
   padding-left: 75px;
   padding-right: 75px;
+  border-radius: 5px;
 }
 
 /* ////////////// TRANSACTIONS CSS ////////////  */

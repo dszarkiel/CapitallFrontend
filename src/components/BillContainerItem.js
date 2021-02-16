@@ -12,6 +12,17 @@ class BillContainerItem extends React.Component {
         return daysLeft
     }
 
+    renderColor = () => {
+        let days = this.renderDaysRemaining()
+        if (days <= 3) {
+            return "red"
+        } else if( days <= 7) {
+            return "orange"
+        } else {
+            return "black"
+        }
+    }
+
 
     render(){
 
@@ -24,7 +35,7 @@ class BillContainerItem extends React.Component {
                     <Row>
                     <Col sm><h5>{name}</h5></Col>
                     <Col sm><h5>${amount.toLocaleString()}</h5></Col>
-                    <Col sm><h5>{this.renderDaysRemaining()} days left</h5></Col>
+                    <Col sm><h5 style={{color: this.renderColor()}}>{this.renderDaysRemaining()} days left</h5></Col>
                     </Row>
                     </Container>
                 </ListGroup.Item>

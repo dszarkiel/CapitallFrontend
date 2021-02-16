@@ -8,18 +8,28 @@ import {connect} from 'react-redux'
 class BudgetsContainerItem extends React.Component {
 
 
-    // RENDERS RATIO FOR TRANSACTIONS THAT MATCH BUDGET_ID AND CHECKS FOR CURRENT YEAR + MONTH
-    renderRatio = () => {
+    filterTransactions = () => {
         let budgetTransactions = [0];
-        let ratio = 0;
-        const reducer = (accumulator, currentValue) => accumulator + currentValue;
-
         this.props.transactions.map(transaction => {
             if (transaction.budget_id === this.props.budget.id && transaction.date.split("-")[0] + "-" + transaction.date.split("-")[1] === moment().format("YYYY-MM")) {
                 budgetTransactions.push(transaction.amount)
             }
         })
-        
+        return budgetTransactions
+    }
+
+    // RENDERS RATIO FOR TRANSACTIONS THAT MATCH BUDGET_ID AND CHECKS FOR CURRENT YEAR + MONTH
+    renderRatio = () => {
+        // let budgetTransactions = [0];
+        let ratio = 0;
+        const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+        // this.props.transactions.map(transaction => {
+        //     if (transaction.budget_id === this.props.budget.id && transaction.date.split("-")[0] + "-" + transaction.date.split("-")[1] === moment().format("YYYY-MM")) {
+        //         budgetTransactions.push(transaction.amount)
+        //     }
+        // })
+            let budgetTransactions = this.filterTransactions()
             budgetTransactions = Math.round(budgetTransactions.reduce(reducer))
             ratio = ((budgetTransactions/this.props.budget.amount)*100)
             return ratio
@@ -27,15 +37,17 @@ class BudgetsContainerItem extends React.Component {
 
     // RENDERS PROGRESS BAR COLOR DEPENDING ON RATIO, FUNCTION NEEDS REFACTORING
     renderBarStatus = () => {
-        let budgetTransactions = [0];
+        // let budgetTransactions = [0];
         let ratio = 0;
         const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-        this.props.transactions.map(transaction => {
-            if (transaction.budget_id === this.props.budget.id && transaction.date.split("-")[0] + "-" + transaction.date.split("-")[1] === moment().format("YYYY-MM")) {
-                budgetTransactions.push(transaction.amount)
-            }
-        })
+        // this.props.transactions.map(transaction => {
+        //     if (transaction.budget_id === this.props.budget.id && transaction.date.split("-")[0] + "-" + transaction.date.split("-")[1] === moment().format("YYYY-MM")) {
+        //         budgetTransactions.push(transaction.amount)
+        //     }
+        // })
+
+            let budgetTransactions = this.filterTransactions()
 
             budgetTransactions = Math.round(budgetTransactions.reduce(reducer))
             ratio = ((budgetTransactions/this.props.budget.amount)*100)

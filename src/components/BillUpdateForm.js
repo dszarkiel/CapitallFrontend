@@ -118,7 +118,7 @@ class BillForm extends React.Component {
                 </Form.Group>
                 </Form.Row>
                 <Button onClick={() => this.props.history.push('/bills')}>Cancel</Button>
-                <Button type="submit" variant="success">Add Bill</Button>
+                <Button type="submit" variant="success">Update Bill</Button>
                 </Form>
             </div>
         )
