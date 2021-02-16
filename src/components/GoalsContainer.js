@@ -14,14 +14,14 @@ class GoalsContainer extends React.Component {
 
     render(){
         return(
-            <div className="goals-container">
+            <div className="goals-container shadow-lg rounded">
                 <h2>Goals</h2>
                 <div className="goals-table">
                 <ListGroup variant="flush">
                 {this.renderGoals()}
                 </ListGroup>
                 </div>
-                <Button className="goals-view-btn" onClick={() => this.props.history.push('/goals')} >View</Button>
+                <Button className="goals-view-btn" onClick={() => this.props.history.push('/goals')} >View Goals</Button>
             </div>
         )
     }

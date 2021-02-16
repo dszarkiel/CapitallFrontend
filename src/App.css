@@ -3,11 +3,15 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  width:80%;
-  height: 600px;
+  width: 80%;
   transform: translate(-50%, -50%); 
-  border-radius: 0;
+  border-radius: 5px;
+  border: 1px solid #2A2A69;
 }
+.introLogo {
+  padding: 10px;
+}
+
 .card mb-3 {
   text-align: center;
   position: fixed;
@@ -23,16 +27,16 @@
     background-position: center;
 }
 html, body {
-  background-image: url(./images/architectPattern.jpg);
+  background-image: url(./images/BllueGreenBackground.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 0px 46px;
+  /* background-position: 0px 46px; */
 }
 
 .sign-up-div {
   text-align: center;
   background-color: white;
-  border: 1px solid maroon;
+  border: 1px solid #2A2A69;
   text-align: center;
   position: fixed;
   top: 50%;
@@ -44,6 +48,7 @@ html, body {
   padding-top: 10px;
   padding-left: 75px;
   padding-right: 75px;
+  border-radius: 5px;
 }
 
 .error {
@@ -51,8 +56,7 @@ html, body {
   color: red
 }
 
-h1, h2 { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 275px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
-
+h1, h2 { color: #111; font-family: 'Montserrat', sans-serif;; font-size: 275px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
 
 .nav-date { 
   margin-top: 13px;
@@ -63,7 +67,8 @@ h1, h2 { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 275p
   line-height: 32px;
 }
 .nav-div {
-  border: 1px solid maroon;
+  background: linear-gradient(0deg, rgba(84,93,250,1) 0%, rgba(42,152,254,1) 100%);
+  border: 1px solid #2A2A69;
   padding-bottom: 0px;
   overflow: hidden;
 }
@@ -83,16 +88,16 @@ thead {
 
 .dashboard {
   text-align: center;
-  /* border: 1px solid maroon; */
+  /* border: 1px solid #2A2A69; */
   border-radius: 5px;
   position: fixed;
   margin-top: 40px;
-  top: 50%;
+  top: 55%;
   left: 50%;
   width:100%;
-  height: 95%;
+  height: 100%;
   transform: translate(-50%, -50%);
-  overflow: hidden;
+  overflow: scroll;
 }
 
 /* ////////////// USER CSS ////////////  */
@@ -102,7 +107,7 @@ thead {
 .user-update-form {
   text-align: center;
   background-color: white;
-  border: 1px solid maroon;
+  border: 1px solid #2A2A69;
   text-align: center;
   position: fixed;
   top: 50%;
@@ -119,7 +124,7 @@ thead {
 /* ////////////// TRANSACTIONS CSS ////////////  */
 .transactions-container {
   background-color: white;
-  border: 1px solid maroon;
+  border: 1px solid #2A2A69;
   margin-top: 25px;
   height: 350px;
   border-radius: 5px;
@@ -135,8 +140,9 @@ thead {
 .transactions-panel {
   background-color: white;
   text-align: center;
-  border: 1px solid maroon;
+  border: 1px solid #2A2A69;
   position: fixed;
+  border-radius: 5px;
   top: 50%;
   left: 50%;
   width:95%;
@@ -151,7 +157,7 @@ thead {
 .transaction-form {
   background-color: white;
   text-align: center;
-  border: 1px solid maroon;
+  border: 1px solid #2A2A69;
   border-radius: 5px;
   position: fixed;
   top: 50%;
@@ -173,7 +179,7 @@ thead {
 /* ////////////// ACCOUNTS CSS ////////////  */
 .accounts-container {
   background-color: white;
-  border: 1px solid maroon;
+  border: 1px solid #2A2A69;
   margin-top: 25px;
   height: 350px;
   border-radius: 5px;
@@ -195,7 +201,7 @@ thead {
 .accounts-panel {
   background-color: white;
   text-align: center;
-  border: 1px solid maroon;
+  border: 1px solid #2A2A69;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -203,6 +209,7 @@ thead {
   height: 75%;
   transform: translate(-50%, -50%);
   overflow: scroll;
+  border-radius: 5px;
 }
 .accounts-panel-table {
   height: 85%;
@@ -211,7 +218,7 @@ thead {
 .account-form {
   background-color: white;
   text-align: center;
-  border: 1px solid maroon;
+  border: 1px solid #2A2A69;
   border-radius: 5px;
   position: fixed;
   top: 50%;
@@ -228,7 +235,7 @@ thead {
 /* ////////////// BUDGETS CSS ////////////  */
 .budgets-container {
   background-color: white;
-  border: 1px solid maroon;
+  border: 1px solid #2A2A69;
   margin-top: 25px;
   height: 350px;
   border-radius: 5px;
@@ -243,7 +250,7 @@ thead {
 .budgets-panel {
   background-color: white;
   text-align: center;
-  border: 1px solid maroon;
+  border: 1px solid #2A2A69;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -259,7 +266,7 @@ thead {
 .budget-form {
   background-color: white;
   text-align: center;
-  border: 1px solid maroon;
+  border: 1px solid #2A2A69;
   border-radius: 5px;
   position: fixed;
   top: 50%;
@@ -276,7 +283,7 @@ thead {
 /* ////////////// BILLS CSS ////////////  */
 .bills-container {
   background-color: white;
-  border: 1px solid maroon;
+  border: 1px solid #2A2A69;
   margin-top: 25px;
   height: 350px;
   border-radius: 5px;
@@ -291,7 +298,7 @@ thead {
 .bills-panel {
   text-align: center;
   background-color: white;
-  border: 1px solid maroon;
+  border: 1px solid #2A2A69;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -299,6 +306,7 @@ thead {
   height: 75%;
   transform: translate(-50%, -50%);
   overflow: scroll;
+  border-radius: 5px;
 }
 .bills-panel-table {
   height: 85%;
@@ -307,7 +315,7 @@ thead {
 .bill-form {
   text-align: center;
   background-color: white;
-  border: 1px solid maroon;
+  border: 1px solid #2A2A69;
   border-radius: 5px;
   position: fixed;
   top: 50%;
@@ -324,7 +332,7 @@ thead {
 /* ////////////// GOALS CSS ////////////  */
 .goals-container {
   background-color: white;
-  border: 1px solid maroon;
+  border: 1px solid #2A2A69;
   margin-top: 25px;
   height: 350px;
   border-radius: 5px;
@@ -339,7 +347,7 @@ thead {
 .goals-panel {
   background-color: white;
   text-align: center;
-  border: 1px solid maroon;
+  border: 1px solid #2A2A69;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -355,7 +363,7 @@ thead {
 .goal-form {
   background-color: white;
   text-align: center;
-  border: 1px solid maroon;
+  border: 1px solid #2A2A69;
   border-radius: 5px;
   position: fixed;
   top: 50%;
@@ -383,7 +391,7 @@ thead {
 .budget-view {
   background-color: white;
   text-align: center;
-  border: 1px solid maroon;
+  border: 1px solid #2A2A69;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -391,12 +399,22 @@ thead {
   height: 70%;
   transform: translate(-50%, -50%);
   overflow: scroll;
+  border-radius: 5px;
 }
 .budget-transactions {
-  border: 1px solid maroon;
+  border: 1px solid #2A2A69;
   width: 100%;
   height: 90%;
   overflow: hidden;
+  border-radius: 5px;
+  padding-bottom: 20px;
+}
+.budget-view-card {
+  height: 90%;
+}
+.budget-view-back-button {
+  height: 10%;
+  margin-top: 5px;
 }
 
 .inner {
@@ -416,7 +434,7 @@ thead {
 .goal-view {
   background-color: white;
   text-align: center;
-  border: 1px solid maroon;
+  border: 1px solid #2A2A69;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -424,10 +442,19 @@ thead {
   height: 70%;
   transform: translate(-50%, -50%);
   overflow: scroll;
+  border-radius: 5px;
 }
 .goal-transactions {
-  border: 1px solid maroon;
+  border: 1px solid #2A2A69;
   width: 100%;
   height: 90%;
   overflow: hidden;
+  border-radius: 5px;
+}
+.goal-view-card {
+  height: 90%;
+}
+.goal-view-back-button {
+  height: 10%;
+  margin-top: 5px;
 }

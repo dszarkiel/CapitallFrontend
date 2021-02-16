@@ -14,12 +14,12 @@ class BillsContainer extends React.Component {
 
     render(){
         return(
-            <div className="bills-container">
+            <div className="bills-container shadow-lg rounded">
                 <h2>Bill Reminders</h2>
                 <div className="bills-table" >
                 {this.renderBills()}
                 </div>
-                <Button className="bills-view-btn" onClick={() => this.props.history.push('/bills')} >View</Button>
+                <Button className="bills-view-btn" onClick={() => this.props.history.push('/bills')} >View Bills</Button>
             </div>
         )
     }

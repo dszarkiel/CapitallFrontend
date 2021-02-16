@@ -19,7 +19,7 @@ class TransactionsContainer extends React.Component {
 
     render(){
         return(
-            <div className="transactions-container">
+            <div className="transactions-container shadow-lg rounded">
                 <h2>Transactions</h2>
                 <div className="transactions-table" >
                 <Table striped bordered hover size="sm" responsive>
@@ -36,7 +36,7 @@ class TransactionsContainer extends React.Component {
                 </tbody>
                 </Table>
                 </div>
-                <Button className="transaction-view-btn" onClick={this.handleTransactionPanel} >View</Button>
+                <Button className="transaction-view-btn" onClick={this.handleTransactionPanel} >View Transactions</Button>
             </div>
         )
     }

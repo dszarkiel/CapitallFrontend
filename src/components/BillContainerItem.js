@@ -23,7 +23,7 @@ class BillContainerItem extends React.Component {
                 <Container fluid>
                     <Row>
                     <Col sm><h5>{name}</h5></Col>
-                    <Col sm><h5>${amount}</h5></Col>
+                    <Col sm><h5>${amount.toLocaleString()}</h5></Col>
                     <Col sm><h5>{this.renderDaysRemaining()} days left</h5></Col>
                     </Row>
                     </Container>

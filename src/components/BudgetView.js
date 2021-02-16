@@ -27,6 +27,10 @@ class BudgetView extends React.Component {
         })
     }
 
+    getGradient = (canvas) => {
+        console.log("test", canvas)
+    }
+
     componentWillMount = () => {
         let spentAmount = [];
         const reducer = (accumulator, currentValue) => accumulator + currentValue;
@@ -46,7 +50,6 @@ class BudgetView extends React.Component {
         if (ratio > 100) {
             ratio = 100
         }
-        console.log(ratio)
         this.setState({
             data: [totalSpent, leftOverAmount],
             ratio: ratio
@@ -56,9 +59,10 @@ class BudgetView extends React.Component {
 
 
     render(){
+
         return(
         <div className="budget-view shadow-lg rounded" >
-        <Card >
+        <Card className="budget-view-card">
         <Container fluid>
             <div className="row g-0">
             <Col md={6}>
@@ -72,8 +76,8 @@ class BudgetView extends React.Component {
                         label: 'Budget',
                         data: this.state.data,
                         backgroundColor: [
-                            'rgba(107, 13, 60, 1)',
-                            'rgba(44, 144, 32, .8)',
+                            'rgba(119, 190, 243, .8)',
+                            'rgba(145, 246, 198, .8)',
                         ],
                         borderColor: [
                             'rgba(255, 255, 255, 1)',
@@ -113,7 +117,7 @@ class BudgetView extends React.Component {
             </div>
             </Container>
             </Card>
-            <div>
+            <div className="budget-view-back-button">
                 <Button onClick={()=>this.props.history.goBack()} >Back</Button>
             </div>
             </div>

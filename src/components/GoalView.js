@@ -13,7 +13,7 @@ class GoalView extends React.Component {
     constructor(){
         super();
         this.state = {
-            data: [100, 50],
+            data: [],
             ratio: 0
         }
     }
@@ -56,9 +56,10 @@ class GoalView extends React.Component {
 
 
     render(){
+
         return(
         <div className="goal-view shadow-lg rounded" >
-        <Card >
+        <Card className="goal-view-card">
         <Container fluid>
             <div className="row g-0">
             <Col md={6}>
@@ -72,8 +73,8 @@ class GoalView extends React.Component {
                         label: 'Goal',
                         data: this.state.data,
                         backgroundColor: [
-                            'rgba(44, 144, 32, .8)',
-                            'rgba(107, 13, 60, 1)',
+                            'rgba(145, 246, 198, .8)',
+                            'rgba(119, 190, 243, .8)',
                         ],
                         borderColor: [
                             'rgba(255, 255, 255, 1)',
@@ -113,7 +114,7 @@ class GoalView extends React.Component {
             </div>
             </Container>
             </Card>
-            <div>
+            <div className="goal-view-back-button">
                 <Button onClick={()=>this.props.history.goBack()} >Back</Button>
             </div>
             </div>

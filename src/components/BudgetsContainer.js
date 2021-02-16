@@ -14,14 +14,14 @@ class BudgetsContainer extends React.Component {
 
     render(){
         return(
-            <div className="budgets-container">
+            <div className="budgets-container shadow-lg rounded">
                 <h2>Budgets</h2>
                 <div className="budgets-table">
                 <ListGroup variant="flush">
                 {this.renderBudgets()}
                 </ListGroup>
                 </div>
-                <Button className="budgets-view-btn" onClick={() => this.props.history.push('/budgets')} >View</Button>
+                <Button className="budgets-view-btn" onClick={() => this.props.history.push('/budgets')} >View Budgets</Button>
             </div>
         )
     }

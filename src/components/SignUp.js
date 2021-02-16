@@ -32,7 +32,7 @@ class SignUp extends React.Component {
     
     handleSubmit = (e) => {
         e.preventDefault()
-
+        console.log(this.state)
         fetch("http://localhost:3000/users", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -41,7 +41,7 @@ class SignUp extends React.Component {
                 last_name: this.state.last_name,
                 date_of_birth: this.state.date_of_birth,
                 email: this.state.email,
-                password_digest: this.state.password,
+                password: this.state.password,
                 address: this.state.address,
                 address_two: this.state.address_two,
                 city: this.state.city,

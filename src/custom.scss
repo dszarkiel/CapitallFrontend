@@ -1,9 +1,15 @@
 
-$primary: #6B0D3C;
-$success: #0B9E29;
+
+$primary: #2e45e6;
+$success: #7fdaad;
 $danger: #DB0000;
-$warning: #F3AD33;
-$info: #2A2A69;
+$warning: #e7b039;
+$info: #7ac9e2;
+
+// $light: #2a98fe;
+.bg-light {
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 40%, rgba(66, 117, 256, 0.2) 100%);
+}
 
 
 

@@ -9,7 +9,9 @@ import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 // import Logo from '../images/Logo.png'
-import Logo from '../images/IntroLogo.png'
+import Logo from '../images/Moneytree.png'
+
+
 class SignIn extends React.Component {
     state = {
         email: "dom@gmail.com",
@@ -49,11 +51,11 @@ class SignIn extends React.Component {
         return(
             <div className="sign-in-div">
 
-                <Card className="shadow-lg p-3 mb-5 bg-white rounded">
+                <Card>
 
                 <Container fluid>
                 <div className="row g-0">
-                                <Col md={4} className="introLogo" style={{ width: '50%' }}>
+                                <Col md={4} className="introLogo">
                                     <Card.Img src={Logo} />
                                 </Col>
 

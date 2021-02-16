@@ -8,10 +8,10 @@ import Row from 'react-bootstrap/Row'
 
 class AccountsContainer extends React.Component {
     state = {
-        assets: 0,
-        liabilities: 0,
-        investments: 0,
-        netWorth: 0
+        assets: "",
+        liabilities: "",
+        investments: "",
+        netWorth: ""
     }
 
     calculateAssets = () => {
@@ -54,7 +54,7 @@ class AccountsContainer extends React.Component {
 
     render(){
         return(
-            <div className="accounts-container">
+            <div className="accounts-container shadow-lg rounded">
                 <h2>Accounts</h2>
                 <div className="accounts-table" >
 
@@ -95,7 +95,7 @@ class AccountsContainer extends React.Component {
                 </ListGroup.Item>
                 
                 </div>
-                <Button className="account-view-btn" onClick={() => this.props.history.push('/accounts')} >View</Button>
+                <Button className="account-view-btn" onClick={() => this.props.history.push('/accounts')} >View Accounts</Button>
             </div>
         )
     }
