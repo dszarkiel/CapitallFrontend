@@ -4,17 +4,18 @@ import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import { deleteGoal, selectGoal, updateGoal } from '../actions/goalsActions';
 import moment from 'moment'
+import {TrashFill, GearWideConnected, Check2Circle} from 'react-bootstrap-icons'
 
 class GoalPanelItem extends React.Component {
 
     handleUpdate = (e) => {
-        const id = e.target.id
+        const id = e.currentTarget.id
         this.props.selectGoal(this.props.goal)
         this.props.history.push(`/goals/edit/${id}`)
     }
 
     handleMarkComplete = (e) => {
-        const id = e.target.id
+        const id = e.currentTarget.id
         fetch(`http://localhost:3000/goals/${id}`, {
             method: "PATCH",
             headers: {"Content-Type": "application/json"},
@@ -29,7 +30,7 @@ class GoalPanelItem extends React.Component {
     }
 
     handleDelete = (e) => {
-        const id = parseInt(e.target.id)
+        const id = parseInt(e.currentTarget.id)
         fetch(`http://localhost:3000/goals/${id}`, {method: "DELETE"})
         .then(response => response.json())
         .then(() => {
@@ -79,12 +80,12 @@ class GoalPanelItem extends React.Component {
                     <Button size="sm" disabled variant="success" >Completed</Button>
                     :
                     <span>
-                    <Button size="sm" id={id} variant="success" onClick={this.handleMarkComplete} >Complete</Button>
+                    <Button size="sm" id={id} variant="success" onClick={this.handleMarkComplete} >Complete {<Check2Circle/>}</Button>
                     <Button size="sm" id={id} onClick={this.handleView}>View</Button>
-                    <Button size="sm" id={id} onClick={this.handleUpdate} >Update</Button>
+                    <Button size="sm" id={id} onClick={this.handleUpdate} >{<GearWideConnected/>}</Button>
                     </span>
                     }
-                    <Button size="sm" id={id} variant="danger" onClick={this.handleDelete}>Delete</Button>
+                    <Button size="sm" id={id} variant="danger" onClick={this.handleDelete}>{<TrashFill/>}</Button>
                     </td>
                 </tr>
         )

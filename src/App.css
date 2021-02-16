@@ -30,7 +30,9 @@ html, body {
   background-image: url(./images/BllueGreenBackground.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-position: 0px 46px; */
+}
+.designer-link:hover {
+  cursor: pointer;
 }
 
 .sign-up-div {
@@ -59,10 +61,10 @@ html, body {
 h1, h2 { color: #111; font-family: 'Montserrat', sans-serif;; font-size: 275px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
 
 .nav-date { 
-  margin-top: 13px;
+  margin-top: 10px;
   color: #111;
   font-family: 'Open Sans', sans-serif;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 300;
   line-height: 32px;
 }
@@ -71,6 +73,7 @@ h1, h2 { color: #111; font-family: 'Montserrat', sans-serif;; font-size: 275px; 
   border: 1px solid #2A2A69;
   padding-bottom: 0px;
   overflow: hidden;
+  padding: 0;
 }
 .btn {
   margin: 5px;
@@ -163,8 +166,8 @@ thead {
   position: fixed;
   top: 50%;
   left: 50%;
-  width:90%;
-  height: 75%;
+  width:95%;
+  height: 80%;
   transform: translate(-50%, -50%);
   overflow: scroll;
   padding-top: 10px;
@@ -206,8 +209,8 @@ thead {
   position: fixed;
   top: 50%;
   left: 50%;
-  width:90%;
-  height: 75%;
+  width:95%;
+  height: 80%;
   transform: translate(-50%, -50%);
   overflow: scroll;
   border-radius: 5px;
@@ -224,8 +227,8 @@ thead {
   position: fixed;
   top: 50%;
   left: 50%;
-  width:90%;
-  height: 75%;
+  width:95%;
+  height: 80%;
   transform: translate(-50%, -50%);
   overflow: scroll;
   padding-top: 10px;
@@ -255,8 +258,8 @@ thead {
   position: fixed;
   top: 50%;
   left: 50%;
-  width:90%;
-  height: 75%;
+  width:95%;
+  height: 80%;
   transform: translate(-50%, -50%);
   overflow: scroll;
 }
@@ -272,15 +275,43 @@ thead {
   position: fixed;
   top: 50%;
   left: 50%;
-  width:90%;
-  height: 75%;
+  width:95%;
+  height: 80%;
   transform: translate(-50%, -50%);
   overflow: scroll;
   padding-top: 10px;
   padding-left: 75px;
   padding-right: 75px;
 }
-
+.budget-view {
+  background-color: white;
+  text-align: center;
+  border: 1px solid #2A2A69;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width:95%;
+  height: 80%;
+  transform: translate(-50%, -50%);
+  overflow: scroll;
+  border-radius: 5px;
+}
+.budget-transactions {
+  margin-top: 15px;
+  border: 1px solid #2A2A69;
+  width: 100%;
+  height: 95%;
+  overflow: hidden;
+  border-radius: 5px;
+  padding-bottom: 20px;
+}
+.budget-view-card {
+  height: 90%;
+}
+.budget-view-back-button {
+  height: 10%;
+  margin-top: 5px;
+}
 /* ////////////// BILLS CSS ////////////  */
 .bills-container {
   background-color: white;
@@ -303,8 +334,8 @@ thead {
   position: fixed;
   top: 50%;
   left: 50%;
-  width:90%;
-  height: 75%;
+  width:95%;
+  height: 80%;
   transform: translate(-50%, -50%);
   overflow: scroll;
   border-radius: 5px;
@@ -321,8 +352,8 @@ thead {
   position: fixed;
   top: 50%;
   left: 50%;
-  width:90%;
-  height: 75%;
+  width:95%;
+  height: 80%;
   transform: translate(-50%, -50%);
   overflow: scroll;
   padding-top: 10px;
@@ -352,8 +383,8 @@ thead {
   position: fixed;
   top: 50%;
   left: 50%;
-  width:90%;
-  height: 75%;
+  width:95%;
+  height: 80%;
   transform: translate(-50%, -50%);
   overflow: scroll;
 }
@@ -369,69 +400,14 @@ thead {
   position: fixed;
   top: 50%;
   left: 50%;
-  width:90%;
-  height: 75%;
+  width:95%;
+  height: 80%;
   transform: translate(-50%, -50%);
   overflow: scroll;
   padding-top: 10px;
   padding-left: 75px;
   padding-right: 75px;
 }
-
-.mr-sm-2 {
-  margin: 5px;
-  text-align: center;
-  float: right;
-}
-
-  ul {
-    text-align: center;
-    list-style-position: inside;
-}
-
-.budget-view {
-  background-color: white;
-  text-align: center;
-  border: 1px solid #2A2A69;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width:95%;
-  height: 70%;
-  transform: translate(-50%, -50%);
-  overflow: scroll;
-  border-radius: 5px;
-}
-.budget-transactions {
-  border: 1px solid #2A2A69;
-  width: 100%;
-  height: 90%;
-  overflow: hidden;
-  border-radius: 5px;
-  padding-bottom: 20px;
-}
-.budget-view-card {
-  height: 90%;
-}
-.budget-view-back-button {
-  height: 10%;
-  margin-top: 5px;
-}
-
-.inner {
-  width: 250px;
-  height: 100px;
-  /* Center vertically and horizontally */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -50px 0 0 -110px; /* apply negative top and left margins to truly center the element */
-}
-
-.inner h1 {
-  font-size: 90px;
-}
-
 .goal-view {
   background-color: white;
   text-align: center;
@@ -458,4 +434,35 @@ thead {
 .goal-view-back-button {
   height: 10%;
   margin-top: 5px;
+}
+
+.mr-sm-2 {
+  margin: 5px;
+  text-align: center;
+  float: right;
+}
+
+  ul {
+    text-align: center;
+    list-style-position: inside;
+}
+
+
+
+.inner {
+  width: 250px;
+  height: 100px;
+  /* Center vertically and horizontally */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -50px 0 0 -110px; /* apply negative top and left margins to truly center the element */
+}
+
+.inner h1 {
+  font-size: 90px;
+}
+
+.budget-chart {
+  margin-top: 20px;
 }

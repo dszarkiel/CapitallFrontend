@@ -9,6 +9,8 @@ import Button from 'react-bootstrap/Button'
 import moment from 'moment'
 import BudgetViewItem from './BudgetViewItem'
 
+
+
 class BudgetView extends React.Component {
     constructor(){
         super();
@@ -68,7 +70,8 @@ class BudgetView extends React.Component {
             <Col md={6}>
             <div className="inner">
                 <h1>{this.state.ratio}%</h1>
-            </div>
+            </div >
+            <div className="budget-chart">
             <Doughnut 
                 data={{
                     labels: ['Spent', 'Left Over'],
@@ -86,13 +89,14 @@ class BudgetView extends React.Component {
                         borderWidth: 5,
                     }]
                 }}
-                height={575}
+                height={600}
                 width={200}
                 options={{
                     maintainAspectRatio: false,
                     cutoutPercentage: 75,
                 }}
                 />
+                </div>
             </Col>
 
             <Col md={6}>
@@ -117,9 +121,11 @@ class BudgetView extends React.Component {
             </div>
             </Container>
             </Card>
+
             <div className="budget-view-back-button">
                 <Button onClick={()=>this.props.history.goBack()} >Back</Button>
             </div>
+
             </div>
         )
     }

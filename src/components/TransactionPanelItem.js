@@ -3,11 +3,12 @@ import Button from 'react-bootstrap/Button'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {deleteTransaction, selectTransaction} from '../actions/transactionActions'
+import {TrashFill, GearWideConnected} from 'react-bootstrap-icons'
 
 class TransactionPanelItem extends React.Component {
 
     handleDelete = (e) => {
-        const id = parseInt(e.target.id)
+        const id = parseInt(e.currentTarget.id)
         fetch(`http://localhost:3000/transactions/${id}`, {method: "DELETE"})
         .then(resp => resp.json())
         .then(() => {
@@ -48,7 +49,7 @@ class TransactionPanelItem extends React.Component {
 
     handleUpdate = (e) => {
         this.props.selectTransaction(this.props.transaction)
-        this.props.history.push(`/transactions/edit/${e.target.id}`)
+        this.props.history.push(`/transactions/edit/${e.currentTarget.id}`)
     }
     
     render(){
@@ -67,8 +68,8 @@ class TransactionPanelItem extends React.Component {
                     <td className="align-middle">{this.returnGoalName(goal_id)}</td>
                     <td className="align-middle">${amount.toLocaleString()}</td>
                     <td className="transaction-btns" >
-                    <Button size="sm" id={id} onClick={this.handleUpdate} >Update</Button>
-                    <Button size="sm" id={id} variant="danger" onClick={this.handleDelete}>Delete</Button>
+                    <Button size="sm" id={id} onClick={this.handleUpdate}>{<GearWideConnected/>}</Button>
+                    <Button size="sm" id={id} variant="danger" onClick={this.handleDelete}>{<TrashFill/>}</Button>
                     </td>
                     <th></th>
                 </tr>

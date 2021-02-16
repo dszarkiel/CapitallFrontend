@@ -6,11 +6,11 @@ import {connect} from 'react-redux'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import moment from 'moment'
-import Logo from '../images/Logo.png'
+import Logo from '../images/GradientLogo.png'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import {signOutUser} from '../actions/userActions'
-
+import {PersonCircle, PersonBoundingBox} from 'react-bootstrap-icons'
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 
@@ -65,7 +65,7 @@ class NavBar extends React.Component {
                 <Navbar.Collapse id="responsive-navbar-nav">
 
                 <Container fluid>
-                    <Col lg={4}><h3 className="nav-date">{moment().format('MMM Do, YYYY')}</h3></Col>
+                    <Col lg={4}><h5 className="nav-date">{moment().format('MMM Do, YYYY')}</h5></Col>
 
                     <Col lg={4}>
                         <div className="text-center" >
@@ -76,14 +76,12 @@ class NavBar extends React.Component {
                     <Col lg={4}>        
                         {this.props.currentUser ?
                         <div className="text-right">    
-                        {/* <Button variant="info" onClick={this.handleUserShowCard} >Account</Button>
-                        <Button variant="info" onClick={this.handleSignOut} >Sign Out</Button> */}
                         <DropdownButton
                         menuAlign="right"
-                        title="Menu"
                         variant="light"
+                        title={<PersonCircle/>}
                         drop="down"
-                        size="lg"
+                        size="md"
                         id="dropdown-menu-align-right"
                         >
                         <Dropdown.Item eventKey="1" onClick={this.handleUserShowCard}>Account</Dropdown.Item>
@@ -108,7 +106,7 @@ class NavBar extends React.Component {
                 {this.props.currentUser?
                 <Modal show={this.state.showModal} dialogClassName="user-view" size="lg">
                     <Modal.Header closeButton onClick={() => this.handleUserShowCard()}>
-                    <Modal.Title>Your Information</Modal.Title>
+                    <Modal.Title>{<PersonBoundingBox/>}  Your Information </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
 

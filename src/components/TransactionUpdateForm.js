@@ -95,7 +95,7 @@ class TransactionUpdateForm extends React.Component {
                     </Alert>
                     : null }
 
-                <h1>Transaction Form</h1>
+                <h1>Update Transaction</h1>
                 <Form onSubmit={this.handleSubmit} id={this.props.selectTransaction.id} >
                 <Form.Row>
                     <Form.Group as={Col} controlId="formGridDate">

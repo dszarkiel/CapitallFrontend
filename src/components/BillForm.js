@@ -51,7 +51,8 @@ class BillForm extends React.Component {
                 amount: this.state.amount, 
                 due_date: this.state.due_date, 
                 user_id: this.props.currentUser.id,
-                autopay: autoPaySelection
+                autopay: autoPaySelection,
+                paid: false
             })
         })
         .then(response => response.json())

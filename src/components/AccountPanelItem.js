@@ -3,17 +3,18 @@ import Button from 'react-bootstrap/Button'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import { deleteAccount, selectAccount } from '../actions/accountActions';
+import {TrashFill, GearWideConnected} from 'react-bootstrap-icons'
 
 class AccountPanelItem extends React.Component {
 
     handleUpdate = (e) => {
-        const id = e.target.id
+        const id = e.currentTarget.id
         this.props.selectAccount(this.props.account)
         this.props.history.push(`/accounts/edit/${id}`)
     }
 
     handleDelete = (e) => {
-        const id = parseInt(e.target.id)
+        const id = parseInt(e.currentTarget.id)
         fetch(`http://localhost:3000/accounts/${id}`, {method: "DELETE"})
         .then(response => response.json())
         .then(() => {
@@ -36,9 +37,9 @@ class AccountPanelItem extends React.Component {
                     <td className="align-middle">{category}</td>
                     <td className="align-middle">${balance.toLocaleString()}</td>
                     <td className="align-middle" >
-                    <Button size="sm" id={id} onClick={this.handleUpdate} >Update</Button>
                     <Button size="sm" id={id} onClick={this.handleTransactionView}>View Transactions</Button>
-                    <Button size="sm" id={id} variant="danger" onClick={this.handleDelete}>Delete</Button>
+                    <Button size="sm" id={id} onClick={this.handleUpdate} >{<GearWideConnected/>}</Button>
+                    <Button size="sm" id={id} variant="danger" onClick={this.handleDelete}>{<TrashFill/>}</Button>
                     </td>
                 </tr>
         )

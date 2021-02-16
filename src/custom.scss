@@ -1,12 +1,18 @@
 
 
-$primary: #2e45e6;
+$primary: #485ce6;
 $success: #7fdaad;
 $danger: #DB0000;
 $warning: #e7b039;
 $info: #7ac9e2;
 
 // $light: #2a98fe;
+.navbar {
+    padding-top: 0rem;
+    padding-right: 0rem;
+    padding-bottom: 0rem;
+    padding-left: 0rem;
+}
 .bg-light {
     background: radial-gradient(circle, rgba(255, 255, 255, 1) 40%, rgba(66, 117, 256, 0.2) 100%);
 }

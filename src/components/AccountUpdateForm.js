@@ -7,11 +7,13 @@ import {connect} from 'react-redux';
 import { updateAccount } from '../actions/accountActions';
 
 class AccountUpdateForm extends React.Component {
-    state = {
-        name: this.props.selectAccount.name,
-        category: this.props.selectAccount.category,
-        balance: this.props.selectAccount.balance
-    }
+            state = {
+                name: "",
+                category: "",
+                balance: ""
+            }
+
+        
 
     handleInputChange = (e) => {
         this.setState({
@@ -49,6 +51,21 @@ class AccountUpdateForm extends React.Component {
             }
         })
     }
+
+    componentDidMount = () => {
+        console.log("mount")
+        this.setState({
+            name: this.props.selectAccount.name,
+            category: this.props.selectAccount.category,
+            balance: this.props.selectAccount.balance
+        })
+    }
+
+    // componentDidUpdate = (prevProps, prevState) => {
+    //     if (this.state.name != prevState.name) {
+    //         console.log("update")
+    //     }
+    // } 
 
     render(){
         return(

@@ -2,12 +2,28 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
-
-import Dropdown from 'react-bootstrap/Dropdown'
-import DropdownButton from 'react-bootstrap/DropdownButton'
+import Button from 'react-bootstrap/Button'
+import Modal from 'react-bootstrap/Modal'
+import ListGroup from 'react-bootstrap/ListGroup'
+import Nav from 'react-bootstrap/Nav'
+import {Linkedin, Github, CameraReelsFill} from 'react-bootstrap-icons'
 
 class Footer extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            showModal : false
+        }
+    }
 
+    handleAboutTeam = () => {
+        this.setState({ showModal: !this.state.showModal })
+    }
+
+    openInNewTab = (url) => {
+        let win = window.open(url, '_blank');
+        win.focus();
+      }
 
     render(){
         return(
@@ -17,32 +33,51 @@ class Footer extends React.Component {
             <Navbar.Collapse id="responsive-navbar-nav">
             <Container fluid>
                 <Col lg={4} className="text-center">
-                    Weather API
+                    
                 </Col>
 
                 <Col lg={4} className="text-center">
 
-                    <DropdownButton
-                        menuAlign="left"
-                        title="About Team"
-                        menuRole="menu"
-                        size="lg"
-                        variant="light"
-                        drop="up"
-                        id="dropdown-menu-align-up"
-                        >
-                        <Dropdown.Item eventKey="1">GitHub</Dropdown.Item>
-                        <Dropdown.Item eventKey="1">LinkedIn</Dropdown.Item>
-                        <Dropdown.Item eventKey="4">Demo Video</Dropdown.Item>
-                        </DropdownButton>
+                <Nav.Link onClick={this.handleAboutTeam}>
+                         About Team
+                    </Nav.Link>
                 </Col>
 
                 <Col lg={4} className="text-center">
-                    Col3
+
                 </Col>
             </Container>
             </Navbar.Collapse>
             </Navbar>
+
+                <Modal show={this.state.showModal} dialogClassName="user-view" size="lg">
+                    <Modal.Header closeButton onClick={() => this.handleAboutTeam()}>
+                    <Modal.Title>About Design Team</Modal.Title>
+
+                    </Modal.Header>
+                    <Modal.Body>
+                        <ListGroup.Item>
+                        <h1 className="designer-link" onClick={() => this.openInNewTab("https://github.com/dszarkiel")}>
+                            Github <Github/>
+                        </h1>
+                        </ListGroup.Item>
+                        <ListGroup.Item>
+                        <h1 className="designer-link" onClick={() => this.openInNewTab("https://www.linkedin.com/in/dominikszarkiel/")}>
+                            LinkedIn <Linkedin/>
+                        </h1>
+                        </ListGroup.Item>
+                        <ListGroup.Item>
+                        <h1 className="designer-link">
+                            Demo <CameraReelsFill/>
+                        </h1>
+                        </ListGroup.Item>
+                    </Modal.Body>
+                    <Modal.Footer>
+                    <Button variant="secondary" onClick={() => this.handleAboutTeam()}>
+                        Close
+                    </Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
         )
     }

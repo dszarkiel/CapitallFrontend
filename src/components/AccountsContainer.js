@@ -39,7 +39,7 @@ class AccountsContainer extends React.Component {
         return totalInvestments
     }
 
-    componentWillMount = () => {
+    componentDidMount = () => {
         let assets = this.calculateAssets()
         let liabilities = this.calculateLiabilities()
         let investments = this.calculateInvestments()

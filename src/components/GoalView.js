@@ -12,7 +12,7 @@ class GoalView extends React.Component {
     constructor(){
         super();
         this.state = {
-            data: [],
+            data: [100, 50],
             ratio: 0
         }
     }
@@ -27,7 +27,7 @@ class GoalView extends React.Component {
     }
 
     componentWillMount = () => {
-        let spentAmount = [];
+        let spentAmount = [0];
         const reducer = (accumulator, currentValue) => accumulator + currentValue;
         
         let goalTransactions = this.props.transactions.filter(trans => trans.goal_id === this.props.selectGoal.id)

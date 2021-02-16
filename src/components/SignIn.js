@@ -67,7 +67,7 @@ class SignIn extends React.Component {
                                     to={{ opacity: 1 }}>
                                     {props => 
                                     <div style={props}>
-                                    <h1>Welcome To Finate</h1>
+                                    <h1>Welcome To Capitall!</h1>
                                     <p>
                                     App that was designed to help you achieve financial success. Every dollar earned should be spent responsibly and we can help you do that by
                                     providing you with tools to track all transactions, budget, set goals and reminders for any upcoming bills. To begin, please sign in our sign up!
