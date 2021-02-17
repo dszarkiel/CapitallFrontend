@@ -3,8 +3,10 @@ import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert'
 import {Col} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
+import Image from 'react-bootstrap/Image'
 import {connect} from 'react-redux';
 import { updateGoal } from '../actions/goalsActions';
+import MoneyTreeImg from '../images/MoneyTreeImg.png'
 
 class GoalUpdateForm extends React.Component {
     state = {
@@ -93,6 +95,7 @@ class GoalUpdateForm extends React.Component {
                     <Form.Control type="number" name="amount" placeholder="$" value={this.state.amount} onChange={this.handleAmountChange} />
                  </Form.Group>
                 </Form.Row>
+                <Image className="goal-from-image" src={MoneyTreeImg}/>
                 <Button onClick={() => this.props.history.push('/goals')}>Cancel</Button>
                 <Button type="submit" variant="success">Update Goal</Button>
                 </Form>

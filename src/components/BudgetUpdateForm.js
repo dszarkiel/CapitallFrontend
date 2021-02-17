@@ -5,6 +5,8 @@ import {Col} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import {connect} from 'react-redux';
 import { updateBudget } from '../actions/budgetActions';
+import BudgetImg from '../images/BudgetImg.png'
+import Image from 'react-bootstrap/Image'
 
 class BudgetUpdateForm extends React.Component {
     state = {
@@ -53,7 +55,7 @@ class BudgetUpdateForm extends React.Component {
 
     render(){
         return(
-            <div className="budget-form">
+            <div className="budget-form shadow-lg rounded">
 
                     {this.state.error ?
                     <Alert className="alert" variant="danger" onClose={() => this.setState({error: ''})} dismissible>
@@ -106,6 +108,8 @@ class BudgetUpdateForm extends React.Component {
                     <Form.Control type="number" name="amount" placeholder="$" value={this.state.amount} onChange={this.handleAmountChange} />
                  </Form.Group>
                 </Form.Row>
+                <Image className="budget-form-image" src={BudgetImg} />
+
                 <Button onClick={() => this.props.history.push('/budgets')}>Cancel</Button>
                 <Button type="submit" variant="success">Update Budget</Button>
                 </Form>

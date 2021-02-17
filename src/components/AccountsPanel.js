@@ -16,7 +16,7 @@ class AccountsPanel extends React.Component {
 
     render(){
         return(
-            <div className="accounts-panel" >
+            <div className="accounts-panel shadow-lg rounded" >
                 <h2>Accounts Panel</h2>
                 <div className="accounts-panel-table">
                 <Table striped bordered hover size="lg" responsive>

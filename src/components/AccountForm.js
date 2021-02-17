@@ -5,7 +5,7 @@ import {Col} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import {connect} from 'react-redux';
 import { addAccount } from '../actions/accountActions';
-
+import AccountsImg from '../images/Accounts.png'
 class AccountForm extends React.Component {
     state = {
         name: "",
@@ -53,7 +53,7 @@ class AccountForm extends React.Component {
 
     render(){
         return(
-            <div className="account-form">
+            <div className="account-form shadow-lg rounded">
 
                     {this.state.error ?
                     <Alert className="alert" variant="danger" onClose={() => this.setState({error: ''})} dismissible>
@@ -91,10 +91,18 @@ class AccountForm extends React.Component {
                     <Form.Control type="number" name="balance" placeholder="$" value={this.state.balance} onChange={this.handleBalanceChange} />
                  </Form.Group>
                 </Form.Row>
+                <div>
+                <img className="account-from-image" src={AccountsImg}>
+                </img>
+                </div>
                 <Button onClick={() => this.props.history.push('/accounts')}>Cancel</Button>
-                <Button type="submit">Create Account</Button>
+                <Button type="submit" variant="success">Add Account</Button>
+    
+
                 </Form>
+
             </div>
+
         )
     }
 }

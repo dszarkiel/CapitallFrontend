@@ -17,7 +17,7 @@ class BillsPanel extends React.Component {
 
     render(){
         return(
-            <div className="bills-panel" >
+            <div className="bills-panel shadow-lg rounded" >
                 <h2>Bills Panel</h2>
                 <div className="bills-panel-table">
                 <Table striped bordered hover size="lg" responsive>

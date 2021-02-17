@@ -3,9 +3,11 @@ import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert'
 import {Col} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
+import Image from 'react-bootstrap/Image'
 import {connect} from 'react-redux';
 import moment from 'moment'
 import { addBudget } from '../actions/budgetActions';
+import BudgetImg from '../images/BudgetImg.png'
 
 class BudgetForm extends React.Component {
     state = {
@@ -56,7 +58,7 @@ class BudgetForm extends React.Component {
 
     render(){
         return(
-            <div className="budget-form">
+            <div className="budget-form shadow-lg rounded">
 
                     {this.state.error ?
                     <Alert className="alert" variant="danger" onClose={() => this.setState({error: ''})} dismissible>
@@ -109,9 +111,12 @@ class BudgetForm extends React.Component {
                     <Form.Control type="number" name="amount" placeholder="$" value={this.state.amount} onChange={this.handleAmountChange} />
                  </Form.Group>
                 </Form.Row>
+                <Image className="budget-form-image" src={BudgetImg}/>
+                </Form>
+                <div>
                 <Button onClick={() => this.props.history.push('/budgets')}>Cancel</Button>
                 <Button type="submit" variant="success">Add Budget</Button>
-                </Form>
+                </div>
             </div>
         )
     }

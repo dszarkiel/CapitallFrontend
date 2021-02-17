@@ -33,7 +33,7 @@ class AccountTransactionsView extends React.Component {
 
     render(){
         return(
-            <div className="transactions-panel" >
+            <div className="transactions-panel shadow-lg rounded" >
                 <Container fluid>
                 <Row>
 

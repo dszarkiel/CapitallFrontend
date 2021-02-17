@@ -16,7 +16,7 @@ class GoalsPanel extends React.Component {
 
     render(){
         return(
-            <div className="goals-panel" >
+            <div className="goals-panel shadow-lg rounded" >
                 <h2>Goals Panel</h2>
                 <div className="goals-panel-table">
                 <Table striped bordered hover size="lg" responsive>

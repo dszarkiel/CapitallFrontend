@@ -5,6 +5,7 @@ import {Col} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import {connect} from 'react-redux';
 import { updateAccount } from '../actions/accountActions';
+import AccountsImg from '../images/Accounts.png'
 
 class AccountUpdateForm extends React.Component {
             state = {
@@ -12,8 +13,6 @@ class AccountUpdateForm extends React.Component {
                 category: "",
                 balance: ""
             }
-
-        
 
     handleInputChange = (e) => {
         this.setState({
@@ -54,63 +53,71 @@ class AccountUpdateForm extends React.Component {
 
     componentDidMount = () => {
         console.log("mount")
-        this.setState({
-            name: this.props.selectAccount.name,
-            category: this.props.selectAccount.category,
-            balance: this.props.selectAccount.balance
-        })
-    }
-
-    // componentDidUpdate = (prevProps, prevState) => {
-    //     if (this.state.name != prevState.name) {
-    //         console.log("update")
-    //     }
-    // } 
+        if(this.props.selectAccount) {
+            this.setState({
+                name: this.props.selectAccount.name,
+                category: this.props.selectAccount.category,
+                balance: this.props.selectAccount.balance
+            })
+        } 
+        }
 
     render(){
         return(
-            <div className="account-form">
+            <div>
+                {this.props.selectAccount ? 
+                            <div className="account-form shadow-lg rounded">
 
-                
-                    {this.state.error ?
-                    <Alert className="alert" variant="danger" onClose={() => this.setState({error: ''})} dismissible>
-                        <Alert.Heading>Oops! Something went wrong!</Alert.Heading>
-                        <ul>
-                            {this.state.error.map(message => {
-                                return <li>{message}</li>
-                            })}
-                        </ul>
-                    </Alert>
-                    : null}
+                                    {this.state.error ?
+                                    <Alert className="alert" variant="danger" onClose={() => this.setState({error: ''})} dismissible>
+                                        <Alert.Heading>Oops! Something went wrong!</Alert.Heading>
+                                        <ul>
+                                            {this.state.error.map(message => {
+                                                return <li>{message}</li>
+                                            })}
+                                        </ul>
+                                    </Alert>
+                                    : null}
 
-                <h2>Update Account</h2>
-                <Form id={this.props.selectAccount.id} onSubmit={this.handleSubmit} >
-                <Form.Row>
-                <Form.Group as={Col} controlId="formGridName">
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" name="name"  placeholder="Bank, lender, etc." value={this.state.name} onChange={this.handleInputChange} />
-                </Form.Group>
-                <Form.Group as={Col} controlId="formGridCategory">
-                    <Form.Label>Category</Form.Label>
-                    <Form.Control as="select" name="category" value={this.state.category} onChange={this.handleInputChange} >
-                        <option>Select</option>
-                        <option>Checking</option>
-                        <option>Savings</option>
-                        <option>Cash</option>
-                        <option>Investments</option>
-                        <option>Loan</option>
-                        <option>Credit Card</option>
-                        <option>Mortgage</option>
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group as={Col} controlId="formGridBalance">
-                    <Form.Label>Balance</Form.Label>
-                    <Form.Control type="number" name="balance" placeholder="$" value={this.state.balance} onChange={this.handleBalanceChange} />
-                 </Form.Group>
-                </Form.Row>
-                <Button onClick={() => this.props.history.push('/accounts')}>Cancel</Button>
-                <Button type="submit">Update Account</Button>
-                </Form>
+                                <h2>Update Account</h2>
+                                <Form id={this.props.selectAccount.id} onSubmit={this.handleSubmit} >
+                                <Form.Row>
+                                <Form.Group as={Col} controlId="formGridName">
+                                    <Form.Label>Name</Form.Label>
+                                    <Form.Control type="text" name="name"  placeholder="Bank, lender, etc." value={this.state.name} onChange={this.handleInputChange} />
+                                </Form.Group>
+                                <Form.Group as={Col} controlId="formGridCategory">
+                                    <Form.Label>Category</Form.Label>
+                                    <Form.Control as="select" name="category" value={this.state.category} onChange={this.handleInputChange} >
+                                        <option>Select</option>
+                                        <option>Checking</option>
+                                        <option>Savings</option>
+                                        <option>Cash</option>
+                                        <option>Investments</option>
+                                        <option>Loan</option>
+                                        <option>Credit Card</option>
+                                        <option>Mortgage</option>
+                                    </Form.Control>
+                                </Form.Group>
+                                <Form.Group as={Col} controlId="formGridBalance">
+                                    <Form.Label>Balance</Form.Label>
+                                    <Form.Control type="number" name="balance" placeholder="$" value={this.state.balance} onChange={this.handleBalanceChange} />
+                                </Form.Group>
+                                </Form.Row>
+                                <div>
+                                <img className="account-from-image" src={AccountsImg}>
+                                </img>
+                                </div>
+                                <Button onClick={() => this.props.history.push('/accounts')}>Cancel</Button>
+                                <Button type="submit" variant="success" >Update Account</Button>
+                                </Form>
+                            </div>
+
+                            :
+                            <div>
+                                {this.props.history.push('/accounts')}
+                            </div>
+                }
             </div>
         )
     }

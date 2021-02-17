@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 import {Col} from 'react-bootstrap';
 import {connect} from 'react-redux'
 import { addTransaction } from '../actions/transactionActions';
-
+import Test from '../images/Test.png'
 class TransactionFrom extends React.Component {
     state = {
         date: "",
@@ -182,10 +182,14 @@ class TransactionFrom extends React.Component {
                     <Form.Control type="number" name="amount" as="input" value={this.state.amount} onChange={this.handleInputAmt} step="0.01"/>
                     </Form.Group>
                 </Form.Row>
-
+                <img className="transaction-form-image" src={Test} height="300px" width="300px" >
+                </img><br></br>
+                <div className="form-buttons">
                 <Button onClick={() => this.props.history.goBack()}>Cancel</Button>
-                <Button variant="success" type="submit">Add Transaction </Button>
+                <Button variant="success" type="submit">Add Transaction</Button>
+                </div>
                 </Form>
+
             </div>
         )
     }

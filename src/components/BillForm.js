@@ -5,7 +5,8 @@ import {Col} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import {connect} from 'react-redux';
 import { addBill } from '../actions/billActions';
-
+import BillFormImg from '../images/BillPayImg.png'
+import Image from 'react-bootstrap/Image'
 
 class BillForm extends React.Component {
     state = {
@@ -119,6 +120,9 @@ class BillForm extends React.Component {
                     </Form.Text>
                 </Form.Group>
                 </Form.Row>
+                <div>
+                <Image className="bill-from-image" src={BillFormImg}/>
+                </div>
                 <Button onClick={() => this.props.history.push('/bills')}>Cancel</Button>
                 <Button type="submit" variant="success">Add Bill</Button>
                 </Form>

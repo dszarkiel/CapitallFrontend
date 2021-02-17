@@ -69,7 +69,7 @@ class NavBar extends React.Component {
 
                     <Col lg={4}>
                         <div className="text-center" >
-                        <Navbar.Brand ><img src={Logo} alt="Finate" height="50px" /></Navbar.Brand>
+                        <Navbar.Brand ><img src={Logo} alt="capitall" height="50px" /></Navbar.Brand>
                         </div>
                     </Col>
 

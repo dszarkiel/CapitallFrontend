@@ -65,6 +65,7 @@ class GoalView extends React.Component {
             <div className="inner">
                 <h1>{this.state.ratio}%</h1>
             </div>
+            <div className="budget-chart">
             <Doughnut 
                 data={{
                     labels: ['Saved', 'Remaining'],
@@ -82,13 +83,14 @@ class GoalView extends React.Component {
                         borderWidth: 5,
                     }]
                 }}
-                height={575}
+                height={600}
                 width={200}
                 options={{
                     maintainAspectRatio: false,
                     cutoutPercentage: 75,
                 }}
                 />
+                </div>
             </Col>
 
             <Col md={6}>

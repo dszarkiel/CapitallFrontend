@@ -88,7 +88,7 @@ class TransactionsPanel extends React.Component {
                     <th>Options</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className="transaction-panel-items" >
                 {this.renderTransactions()}
                 </tbody>
                 </Table>
