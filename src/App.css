@@ -232,7 +232,7 @@ thead {
   width:95%;
   height: 80%;
   transform: translate(-50%, -50%);
-  overflow: hidden;
+  overflow: scroll;
   padding-top: 10px;
   padding-left: 75px;
   padding-right: 75px;
@@ -269,6 +269,10 @@ thead {
 .budgets-panel-table {
   height: 85%;
   overflow: auto;
+}
+
+.table-responsive {
+  height: 100%;
 }
 .budget-form {
   background-color: white;
@@ -477,26 +481,26 @@ thead {
   margin-top: 40px;
   height: auto;
   max-width: 100%;
-  margin-bottom: 82px;
+  margin-bottom: 14px;
 }
 .goal-from-image {
   text-align: center;
   height: auto;
-  max-width: 100%;
-  margin-bottom: 48px;
+  max-width: 95%;
+  margin-bottom: 5px;
 }
 .bill-from-image {
   text-align: center;
   height: auto;
   max-width: 90%;
-  margin-bottom: 66px;
+  margin-bottom: 6px;
 }
 .budget-form-image {
   text-align: center;
   margin-top: 40px;
   height: auto;
   max-width: 100%;
-  margin-bottom: 94px;
+  margin-bottom: 28px;
 }
 
 .transaction-form-image {

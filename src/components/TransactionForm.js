@@ -78,7 +78,7 @@ class TransactionFrom extends React.Component {
                 })
             } else {
             this.props.addTransaction(newTransObj)
-            this.props.history.push('/transactions')
+            this.props.history.goBack()
             }
         })
     }

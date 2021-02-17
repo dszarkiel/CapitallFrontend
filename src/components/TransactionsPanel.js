@@ -5,7 +5,6 @@ import Button from 'react-bootstrap/Button'
 import TransactionPanelItem from './TransactionPanelItem'
 import Form from 'react-bootstrap/Form'
 import {Container, Row, Col} from 'react-bootstrap';
-import {Search} from 'react-bootstrap-icons'
 
 class TransactionsPanel extends React.Component {
     state = {

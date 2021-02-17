@@ -112,11 +112,9 @@ class BudgetForm extends React.Component {
                  </Form.Group>
                 </Form.Row>
                 <Image className="budget-form-image" src={BudgetImg}/>
-                </Form>
-                <div>
                 <Button onClick={() => this.props.history.push('/budgets')}>Cancel</Button>
                 <Button type="submit" variant="success">Add Budget</Button>
-                </div>
+                </Form>
             </div>
         )
     }

@@ -15,7 +15,7 @@ class BillsContainer extends React.Component {
     render(){
         return(
             <div className="bills-container shadow-lg rounded">
-                <h2>Bill Reminders</h2>
+                <h2>Bills</h2>
                 <div className="bills-table" >
                 {this.renderBills()}
                 </div>

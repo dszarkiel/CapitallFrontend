@@ -5,8 +5,12 @@ import {withRouter} from 'react-router-dom'
 import { deleteGoal, selectGoal, updateGoal } from '../actions/goalsActions';
 import moment from 'moment'
 import {TrashFill, GearWideConnected, Check2Circle} from 'react-bootstrap-icons'
+import Confetti from 'react-dom-confetti';
 
 class GoalPanelItem extends React.Component {
+    state = {
+        confetti: false
+    }
 
     handleUpdate = (e) => {
         const id = e.currentTarget.id
@@ -26,6 +30,9 @@ class GoalPanelItem extends React.Component {
         .then(response => response.json())
         .then(updatedGoal => {
             this.props.updateGoal(updatedGoal)
+            this.setState({
+                confetti: true
+            })
         })
     }
 
@@ -67,6 +74,20 @@ class GoalPanelItem extends React.Component {
 
         const {id, name, description, amount, due_date, complete} = this.props.goal
 
+        const config = {
+            angle: "219",
+            spread: "281",
+            startVelocity: 40,
+            elementCount: "168",
+            dragFriction: 0.12,
+            duration: 3000,
+            stagger: 3,
+            width: "10px",
+            height: "10px",
+            perspective: "500px",
+            colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"]
+          };
+
         return(
                  <tr>
                     <td className="align-middle">{name}</td>
@@ -77,10 +98,10 @@ class GoalPanelItem extends React.Component {
                     <td className="align-middle">{this.renderDaysLeft()}</td>
                     <td className="align-middle">
                     {complete ? 
-                    <Button size="sm" disabled variant="success" >Completed</Button>
+                    <Button size="sm" disabled variant="success" >Completed <Confetti active={this.state.confetti} config={ config }/></Button>
                     :
                     <span>
-                    <Button size="sm" id={id} variant="success" onClick={this.handleMarkComplete} >Complete {<Check2Circle/>}</Button>
+                    <Button size="sm" id={id} variant="success" onClick={this.handleMarkComplete} >Complete {<Check2Circle/>} </Button>
                     <Button size="sm" id={id} onClick={this.handleView}>View</Button>
                     <Button size="sm" id={id} onClick={this.handleUpdate} >{<GearWideConnected/>}</Button>
                     </span>

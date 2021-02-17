@@ -34,7 +34,7 @@ class BudgetView extends React.Component {
     }
 
     componentWillMount = () => {
-        let spentAmount = [];
+        let spentAmount = [0];
         const reducer = (accumulator, currentValue) => accumulator + currentValue;
         
         let budgetTransactions = this.props.transactions.filter(trans => trans.budget_id === this.props.selectBudget.id && trans.date.split("-")[0] + "-" + trans.date.split("-")[1] === moment().format("YYYY-MM"))
