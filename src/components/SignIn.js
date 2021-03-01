@@ -13,8 +13,8 @@ import Logo from '../images/Moneytree.png'
 
 class SignIn extends React.Component {
     state = {
-        email: "dom@gmail.com",
-        password: "abc",
+        email: "",
+        password: "",
         error: ""
     }
 
