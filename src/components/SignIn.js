@@ -8,7 +8,6 @@ import {Spring} from 'react-spring/renderprops';
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
-// import Logo from '../images/Logo.png'
 import Logo from '../images/Moneytree.png'
 
 
