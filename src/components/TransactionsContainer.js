@@ -13,10 +13,6 @@ class TransactionsContainer extends React.Component {
         })
     }
 
-    handleTransactionPanel = () => [
-        this.props.history.push('/transactions')
-    ]
-
     render(){
         return(
             <div className="transactions-container shadow-lg rounded">
@@ -36,7 +32,7 @@ class TransactionsContainer extends React.Component {
                 </tbody>
                 </Table>
                 </div>
-                <Button className="transaction-view-btn" onClick={this.handleTransactionPanel} >View Transactions</Button>
+                <Button className="transaction-view-btn" onClick={() => this.props.history.push('/transactions')} >View Transactions</Button>
             </div>
         )
     }

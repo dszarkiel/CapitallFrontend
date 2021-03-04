@@ -60,6 +60,7 @@ class App extends React.Component {
           <Switch>
           <Route exact path="/" component={SignIn} />
           <Route exact path="/signup" component={SignUp} />
+          
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/user/edit" component={UserEditForm} />
           

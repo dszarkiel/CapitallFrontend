@@ -7,12 +7,6 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 
 class AccountsContainer extends React.Component {
-    state = {
-        assets: "",
-        liabilities: "",
-        investments: "",
-        netWorth: ""
-    }
 
     calculateAssets = () => {
         let assetAccountAmt = [0];
@@ -38,18 +32,12 @@ class AccountsContainer extends React.Component {
         let totalInvestments = Math.round(investmentAccountAmt.reduce(reducer))
         return totalInvestments
     }
-
-    componentDidMount = () => {
+    renderNetWorth = () => {
         let assets = this.calculateAssets()
         let liabilities = this.calculateLiabilities()
         let investments = this.calculateInvestments()
         let netWorth = assets + investments - liabilities
-        this.setState({
-            assets: assets,
-            liabilities: liabilities,
-            investments: investments,
-            netWorth: netWorth
-        })
+        return netWorth
     }
 
     render(){
@@ -62,7 +50,7 @@ class AccountsContainer extends React.Component {
                     <Container fluid>
                     <Row>
                     <Col sm><h5>Assets</h5></Col>
-                    <Col sm><h5 className="assets">${this.state.assets.toLocaleString()}</h5></Col>
+                    <Col sm><h5 className="assets">${this.calculateAssets().toLocaleString()}</h5></Col>
                     </Row>
                     </Container>
                 </ListGroup.Item>
@@ -71,7 +59,7 @@ class AccountsContainer extends React.Component {
                     <Container fluid>
                     <Row>
                     <Col sm><h5>Liabilities</h5></Col>
-                    <Col sm><h5 className="liabilities">${this.state.liabilities.toLocaleString()}</h5></Col>
+                    <Col sm><h5 className="liabilities">${this.calculateLiabilities().toLocaleString()}</h5></Col>
                     </Row>
                     </Container>
                 </ListGroup.Item>
@@ -80,7 +68,7 @@ class AccountsContainer extends React.Component {
                     <Container fluid>
                     <Row>
                     <Col sm><h5>Investments</h5></Col>
-                    <Col sm><h5 className="assets">${this.state.investments.toLocaleString()}</h5></Col>
+                    <Col sm><h5 className="assets">${this.calculateInvestments().toLocaleString()}</h5></Col>
                     </Row>
                     </Container>
                 </ListGroup.Item>
@@ -89,7 +77,7 @@ class AccountsContainer extends React.Component {
                     <Container fluid>
                     <Row>
                     <Col sm><h4>Net Worth</h4></Col>
-                    <Col sm><h4>${this.state.netWorth.toLocaleString()}</h4></Col>
+                    <Col sm><h4>${this.renderNetWorth().toLocaleString()}</h4></Col>
                     </Row>
                     </Container>
                 </ListGroup.Item>
