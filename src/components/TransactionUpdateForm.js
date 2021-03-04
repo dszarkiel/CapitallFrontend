@@ -187,7 +187,7 @@ class TransactionUpdateForm extends React.Component {
                     <Form.Control type="number" name="amount" as="input" value={this.state.amount} onChange={this.handleInputAmt} step="0.01"/>
                     </Form.Group>
                 </Form.Row> 
-                <img className="transaction-form-image" src={Test} height="300px" width="300px" >
+                <img className="transaction-form-image" src={Test} height="300px" width="300px"  alt="transactions">
                 </img><br></br>
 
                 <Button variant="primary" onClick={() => this.props.history.goBack()}>Cancel</Button>

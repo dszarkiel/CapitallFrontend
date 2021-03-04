@@ -8,49 +8,36 @@ import {connect} from 'react-redux'
 class BudgetsContainerItem extends React.Component {
 
 
+    // FILTERS OUT TRANSACTION AMOUNTS FROM TRANSACTIONS THAT ONLY PERTAIN TO OUR CURRENT BUDGET IN CURRENT MONTH 
     filterTransactions = () => {
-        let budgetTransactions = [0];
+        let budgetTransactionsAmounts = [0];
         this.props.transactions.map(transaction => {
             if (transaction.budget_id === this.props.budget.id && transaction.date.split("-")[0] + "-" + transaction.date.split("-")[1] === moment().format("YYYY-MM")) {
-                budgetTransactions.push(transaction.amount)
+                budgetTransactionsAmounts.push(transaction.amount)
             }
         })
-        return budgetTransactions
+        return budgetTransactionsAmounts
     }
 
     // RENDERS RATIO FOR TRANSACTIONS THAT MATCH BUDGET_ID AND CHECKS FOR CURRENT YEAR + MONTH
     renderRatio = () => {
-        // let budgetTransactions = [0];
         let ratio = 0;
         const reducer = (accumulator, currentValue) => accumulator + currentValue;
-
-        // this.props.transactions.map(transaction => {
-        //     if (transaction.budget_id === this.props.budget.id && transaction.date.split("-")[0] + "-" + transaction.date.split("-")[1] === moment().format("YYYY-MM")) {
-        //         budgetTransactions.push(transaction.amount)
-        //     }
-        // })
-            let budgetTransactions = this.filterTransactions()
-            budgetTransactions = Math.round(budgetTransactions.reduce(reducer))
-            ratio = ((budgetTransactions/this.props.budget.amount)*100)
+            let budgetTransactionsAmounts = this.filterTransactions()
+            budgetTransactionsAmounts = Math.round(budgetTransactionsAmounts.reduce(reducer))
+            ratio = ((budgetTransactionsAmounts/this.props.budget.amount)*100)
             return ratio
     }
 
     // RENDERS PROGRESS BAR COLOR DEPENDING ON RATIO, FUNCTION NEEDS REFACTORING
     renderBarStatus = () => {
-        // let budgetTransactions = [0];
         let ratio = 0;
         const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-        // this.props.transactions.map(transaction => {
-        //     if (transaction.budget_id === this.props.budget.id && transaction.date.split("-")[0] + "-" + transaction.date.split("-")[1] === moment().format("YYYY-MM")) {
-        //         budgetTransactions.push(transaction.amount)
-        //     }
-        // })
+            let budgetTransactionsAmounts = this.filterTransactions()
 
-            let budgetTransactions = this.filterTransactions()
-
-            budgetTransactions = Math.round(budgetTransactions.reduce(reducer))
-            ratio = ((budgetTransactions/this.props.budget.amount)*100)
+            budgetTransactionsAmounts = Math.round(budgetTransactionsAmounts.reduce(reducer))
+            ratio = ((budgetTransactionsAmounts/this.props.budget.amount)*100)
 
             if (ratio > 100) {
                 return "danger"

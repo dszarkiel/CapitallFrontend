@@ -105,7 +105,7 @@ class AccountUpdateForm extends React.Component {
                                 </Form.Group>
                                 </Form.Row>
                                 <div>
-                                <img className="account-from-image" src={AccountsImg}>
+                                <img className="account-from-image" src={AccountsImg} alt="account">
                                 </img>
                                 </div>
                                 <Button onClick={() => this.props.history.push('/accounts')}>Cancel</Button>
