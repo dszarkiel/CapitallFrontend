@@ -9,8 +9,6 @@ import Button from 'react-bootstrap/Button'
 import moment from 'moment'
 import BudgetViewItem from './BudgetViewItem'
 
-
-
 class BudgetView extends React.Component {
     constructor(){
         super();
@@ -33,100 +31,112 @@ class BudgetView extends React.Component {
         console.log("test", canvas)
     }
 
-    componentWillMount = () => {
-        let spentAmount = [0];
-        const reducer = (accumulator, currentValue) => accumulator + currentValue;
-        
-        let budgetTransactions = this.props.transactions.filter(trans => trans.budget_id === this.props.selectBudget.id && trans.date.split("-")[0] + "-" + trans.date.split("-")[1] === moment().format("YYYY-MM"))
-        budgetTransactions.forEach(trans => spentAmount.push(trans.amount))
-
-        let totalSpent = Math.round(spentAmount.reduce(reducer))
-
-        let leftOverAmount = this.props.selectBudget.amount - totalSpent
-        if (leftOverAmount < 0) {
-            leftOverAmount = 0
+    componentDidMount = () => {
+        if (this.props.selectBudget) { 
+            let spentAmount = [0];
+            const reducer = (accumulator, currentValue) => accumulator + currentValue;
+            
+            let budgetTransactions = this.props.transactions.filter(trans => trans.budget_id === this.props.selectBudget.id && trans.date.split("-")[0] + "-" + trans.date.split("-")[1] === moment().format("YYYY-MM"))
+            budgetTransactions.forEach(trans => spentAmount.push(trans.amount))
+            
+            let totalSpent = Math.round(spentAmount.reduce(reducer))
+            
+            let leftOverAmount = this.props.selectBudget.amount - totalSpent
+            if (leftOverAmount < 0) {
+                leftOverAmount = 0
+            }
+            let ratio = (totalSpent/this.props.selectBudget.amount * 100)
+            ratio = Math.round(ratio)
+            
+            if (ratio > 100) {
+                ratio = 100
+            }
+            this.setState({
+                data: [totalSpent, leftOverAmount],
+                ratio: ratio
+            })
+        } else {
+            this.props.history.push("/budgets")
         }
-        let ratio = (totalSpent/this.props.selectBudget.amount * 100)
-        ratio = Math.round(ratio)
-        
-        if (ratio > 100) {
-            ratio = 100
         }
-        this.setState({
-            data: [totalSpent, leftOverAmount],
-            ratio: ratio
-        })  
-    }
 
 
 
     render(){
 
         return(
-        <div className="budget-view shadow-lg rounded" >
-        <Card className="budget-view-card">
-        <Container fluid>
-            <div className="row g-0">
-            <Col md={6}>
-            <div className="inner">
-                <h1>{this.state.ratio}%</h1>
-            </div >
-            <div className="budget-chart">
-            <Doughnut 
-                data={{
-                    labels: ['Spent', 'Left Over'],
-                    datasets: [{
-                        label: 'Budget',
-                        data: this.state.data,
-                        backgroundColor: [
-                            'rgba(119, 190, 243, .8)',
-                            'rgba(145, 246, 198, .8)',
-                        ],
-                        borderColor: [
-                            'rgba(255, 255, 255, 1)',
-                            'rgba(255, 255, 255, 1)',
-                        ],
-                        borderWidth: 5,
-                    }]
-                }}
-                height={600}
-                width={200}
-                options={{
-                    maintainAspectRatio: false,
-                    cutoutPercentage: 75,
-                }}
-                />
-                </div>
-            </Col>
+        <div>
+            {this.props.selectBudget ?
+        
+                <div className="budget-view shadow-lg rounded" >
+                <Card className="budget-view-card">
+                    <Container fluid>
+                        <div className="row g-0">
+                            <Col md={6}>
+                            <div className="inner">
+                                <h1>{this.state.ratio}%</h1>
+                            </div >
+                            <div className="budget-chart">
+                                <Doughnut 
+                                    data={{
+                                        labels: ['Spent', 'Left Over'],
+                                        datasets: [{
+                                            label: 'Budget',
+                                            data: this.state.data,
+                                            backgroundColor: [
+                                                'rgba(119, 190, 243, .8)',
+                                                'rgba(145, 246, 198, .8)',
+                                            ],
+                                            borderColor: [
+                                                'rgba(255, 255, 255, 1)',
+                                                'rgba(255, 255, 255, 1)',
+                                            ],
+                                            borderWidth: 5,
+                                        }]
+                                    }}
+                                    height={600}
+                                    width={200}
+                                    options={{
+                                        maintainAspectRatio: false,
+                                        cutoutPercentage: 75,
+                                    }}
+                                    />
+                                </div>
+                            </Col>
 
-            <Col md={6}>
-                <h1>{this.props.selectBudget.name}</h1>
-                <div className="budget-transactions">
-                <Table striped bordered hover size="md" responsive>
-                <thead>
-                    <tr>
-                    <th>Date</th>
-                    <th>Description</th>
-                    <th>Category</th>
-                    <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {this.renderTransactions()}
-                </tbody>
-                </Table>
-                </div>
-            </Col>
+                            <Col md={6}>
+                                <h1>{this.props.selectBudget.name}</h1>
+                                <div className="budget-transactions">
+                                    <Table striped bordered hover size="md" responsive>
+                                    <thead>
+                                        <tr>
+                                        <th>Date</th>
+                                        <th>Description</th>
+                                        <th>Category</th>
+                                        <th>Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {this.renderTransactions()}
+                                    </tbody>
+                                    </Table>
+                                </div>
+                            </Col>
 
+                            </div>
+                        </Container>
+                    </Card>
+
+                    <div className="budget-view-back-button">
+                        <Button onClick={()=>this.props.history.goBack()} >Back</Button>
+                    </div>
+                    </div>
+            :
+            <div>
+                {this.props.history.push("/budgets")}
             </div>
-            </Container>
-            </Card>
-
-            <div className="budget-view-back-button">
-                <Button onClick={()=>this.props.history.goBack()} >Back</Button>
-            </div>
-
-            </div>
+            }
+        </div>
         )
     }
 }

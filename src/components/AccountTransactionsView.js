@@ -5,8 +5,6 @@ import Button from 'react-bootstrap/Button'
 import TransactionPanelItem from './TransactionPanelItem'
 import Form from 'react-bootstrap/Form'
 import {Container, Row, Col} from 'react-bootstrap';
-// import {FormControl, Container, Row, Col} from 'react-bootstrap';
-
 
 class AccountTransactionsView extends React.Component {
     state = {
@@ -33,6 +31,10 @@ class AccountTransactionsView extends React.Component {
 
     render(){
         return(
+            <div>
+
+
+            {this.props.selectAccount ? 
             <div className="transactions-panel shadow-lg rounded" >
                 <Container fluid>
                 <Row>
@@ -51,7 +53,7 @@ class AccountTransactionsView extends React.Component {
                             name="searchDescription" 
                             onChange={this.handleInputChange} 
                             placeholder="Search Description"
-                        />
+                            />
                         <Form.Label htmlFor="inlineFormInputName2" srOnly>
                             Search By Amount
                         </Form.Label>
@@ -63,7 +65,7 @@ class AccountTransactionsView extends React.Component {
                             name="searchAmount" 
                             onChange={this.handleInputChange} 
                             placeholder="Search Amount"
-                        />
+                            />
                         </Form>
                 </Col>
 
@@ -99,8 +101,16 @@ class AccountTransactionsView extends React.Component {
                 <Button onClick={() => this.props.history.push('/transactions/new')} variant="success">Create New Transaction</Button>
 
             </div>
-        )
-    }
+            :
+            <div>
+                {this.props.history.goBack()}
+            </div>
+
+
+        }           
+    </div>
+)
+}
 }
 
 const mapStateToProps = (state) => {

@@ -10,9 +10,9 @@ import Image from 'react-bootstrap/Image'
 
 class BudgetUpdateForm extends React.Component {
     state = {
-        name: this.props.selectBudget.name,
-        category: this.props.selectBudget.category,
-        amount: this.props.selectBudget.amount,
+        name: "",
+        category: "",
+        amount: "",
         error: ""
     }
 
@@ -53,67 +53,89 @@ class BudgetUpdateForm extends React.Component {
         })
     }
 
+    componentDidMount = () => {
+        if(this.props.selectBudget) {
+            this.setState({
+                name: this.props.selectBudget.name,
+                category: this.props.selectBudget.category,
+                amount: this.props.selectBudget.amount,
+            })
+        } 
+        }
+
     render(){
         return(
-            <div className="budget-form shadow-lg rounded">
-
-                    {this.state.error ?
-                    <Alert className="alert" variant="danger" onClose={() => this.setState({error: ''})} dismissible>
-                        <Alert.Heading>Oops! Something went wrong!</Alert.Heading>
-                        <ul>
-                            {this.state.error.map(message => {
-                                return <li>{message}</li>
-                            })}
-                        </ul>
-                    </Alert>
-                    : null}
+            <div>
+                {/* ternary to redirect user after page refresh to avoid error */}
+                {this.props.selectBudget ?
                 
-                <h2>Update Budget</h2>
-                <Form id={this.props.selectBudget.id} onSubmit={this.handleSubmit} >
-                <Form.Row>
-                <Form.Group as={Col} controlId="formGridName">
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" name="name"  placeholder="Bank, lender, etc." value={this.state.name} onChange={this.handleInputChange} />
-                </Form.Group>
-                <Form.Group as={Col} controlId="formGridCategory">
-                    <Form.Label>Category</Form.Label>
-                    <Form.Control as="select" name="category" value={this.state.category} onChange={this.handleInputChange} >
-                    <option>Select</option>
-                        <option>Auto & Transport</option>
-                        <option>Bills & Utilities</option>
-                        <option>Business Services</option>
-                        <option>Education</option>
-                        <option>Entertainment</option>
-                        <option>Fees & Charges</option>
-                        <option>Financial</option>
-                        <option>Food & Dining</option>
-                        <option>Gifts & Donations</option>
-                        <option>Health & Fitness</option>
-                        <option>Home</option>
-                        <option>Income</option>
-                        <option>Investments</option>
-                        <option>Kids</option>
-                        <option>Loans</option>
-                        <option>Misc Expenses</option>
-                        <option>Personal Care</option>
-                        <option>Pets</option>
-                        <option>Shopping</option>
-                        <option>Taxes</option>
-                        <option>Transfer</option>
-                        <option>Travel</option>
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group as={Col} controlId="formGridAmount">
-                    <Form.Label>Amount per Month</Form.Label>
-                    <Form.Control type="number" name="amount" placeholder="$" value={this.state.amount} onChange={this.handleAmountChange} />
-                 </Form.Group>
-                </Form.Row>
-                <Image className="budget-form-image" src={BudgetImg} />
+                    <div className="budget-form shadow-lg rounded">
 
-                <Button onClick={() => this.props.history.push('/budgets')}>Cancel</Button>
-                <Button type="submit" variant="success">Update Budget</Button>
-                </Form>
-            </div>
+                            {this.state.error ?
+                            <Alert className="alert" variant="danger" onClose={() => this.setState({error: ''})} dismissible>
+                                <Alert.Heading>Oops! Something went wrong!</Alert.Heading>
+                                <ul>
+                                    {this.state.error.map(message => {
+                                        return <li>{message}</li>
+                                    })}
+                                </ul>
+                            </Alert>
+                            : null}
+                        
+                        <h2>Update Budget</h2>
+                        <Form id={this.props.selectBudget.id} onSubmit={this.handleSubmit} >
+                            <Form.Row>
+                                <Form.Group as={Col} controlId="formGridName">
+                                    <Form.Label>Name</Form.Label>
+                                    <Form.Control type="text" name="name"  placeholder="Bank, lender, etc." value={this.state.name} onChange={this.handleInputChange} />
+                                </Form.Group>
+                                <Form.Group as={Col} controlId="formGridCategory">
+                                    <Form.Label>Category</Form.Label>
+                                    <Form.Control as="select" name="category" value={this.state.category} onChange={this.handleInputChange} >
+                                    <option>Select</option>
+                                        <option>Auto & Transport</option>
+                                        <option>Bills & Utilities</option>
+                                        <option>Business Services</option>
+                                        <option>Education</option>
+                                        <option>Entertainment</option>
+                                        <option>Fees & Charges</option>
+                                        <option>Financial</option>
+                                        <option>Food & Dining</option>
+                                        <option>Gifts & Donations</option>
+                                        <option>Health & Fitness</option>
+                                        <option>Home</option>
+                                        <option>Income</option>
+                                        <option>Investments</option>
+                                        <option>Kids</option>
+                                        <option>Loans</option>
+                                        <option>Misc Expenses</option>
+                                        <option>Personal Care</option>
+                                        <option>Pets</option>
+                                        <option>Shopping</option>
+                                        <option>Taxes</option>
+                                        <option>Transfer</option>
+                                        <option>Travel</option>
+                                    </Form.Control>
+                                </Form.Group>
+                                <Form.Group as={Col} controlId="formGridAmount">
+                                    <Form.Label>Amount per Month</Form.Label>
+                                    <Form.Control type="number" name="amount" placeholder="$" value={this.state.amount} onChange={this.handleAmountChange} />
+                                </Form.Group>
+                            </Form.Row>
+
+                            <Image className="budget-form-image" src={BudgetImg} />
+
+                            <Button onClick={() => this.props.history.push('/budgets')}>Cancel</Button>
+                            <Button type="submit" variant="success">Update Budget</Button>
+                        </Form>
+                    </div>
+
+                :
+                <div>
+                    {this.props.history.push('/budgets')}
+                </div>
+                }
+        </div>
         )
     }
 }
