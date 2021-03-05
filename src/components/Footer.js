@@ -27,7 +27,7 @@ class Footer extends React.Component {
 
     render(){
         return(
-            <div>
+            <div className="footer-div">
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light" fixed="bottom">
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">

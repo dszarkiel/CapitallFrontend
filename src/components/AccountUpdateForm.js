@@ -52,7 +52,6 @@ class AccountUpdateForm extends React.Component {
     }
 
     componentDidMount = () => {
-        console.log("mount")
         if(this.props.selectAccount) {
             this.setState({
                 name: this.props.selectAccount.name,
