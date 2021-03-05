@@ -66,6 +66,7 @@ class BudgetView extends React.Component {
 
         return(
         <div>
+            {/* ternary to redirect user after page refresh to avoid error */}
             {this.props.selectBudget ?
         
                 <div className="budget-view shadow-lg rounded" >

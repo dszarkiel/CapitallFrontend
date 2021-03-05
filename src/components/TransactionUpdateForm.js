@@ -95,7 +95,7 @@ class TransactionUpdateForm extends React.Component {
                 budget_id: this.props.selectTransaction.budget_id,
                 account_id: this.props.selectTransaction.account_id,
                 to_account_id: this.props.selectTransaction.to_account_id,
-                goal_id: this.props.selectTransaction.goal_id,
+                goal_id: this.props.selectTransaction.goal_id
             })
         } 
     }

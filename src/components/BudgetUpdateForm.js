@@ -58,7 +58,7 @@ class BudgetUpdateForm extends React.Component {
             this.setState({
                 name: this.props.selectBudget.name,
                 category: this.props.selectBudget.category,
-                amount: this.props.selectBudget.amount,
+                amount: this.props.selectBudget.amount
             })
         } 
         }
