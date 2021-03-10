@@ -28,6 +28,7 @@ class Footer extends React.Component {
     render(){
         return(
             <div className="footer-div">
+                <footer>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light" fixed="bottom">
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
@@ -67,7 +68,7 @@ class Footer extends React.Component {
                         </h1>
                         </ListGroup.Item>
                         <ListGroup.Item>
-                        <h1 className="designer-link">
+                        <h1 className="designer-link"  onClick={() => this.openInNewTab("https://www.youtube.com/watch?v=HMUNP0uMqzs&t=2s")}>
                             Demo <CameraReelsFill/>
                         </h1>
                         </ListGroup.Item>
@@ -78,6 +79,7 @@ class Footer extends React.Component {
                     </Button>
                     </Modal.Footer>
                 </Modal>
+                </footer>
             </div>
         )
     }

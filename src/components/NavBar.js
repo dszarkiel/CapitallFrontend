@@ -59,6 +59,7 @@ class NavBar extends React.Component {
     render(){
         return(
             <div className="nav-div">
+                <nav>
                 <Navbar collapseOnSelect expand="lg" bg="light" variant="light" fixed="top">
 
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -99,7 +100,7 @@ class NavBar extends React.Component {
                 </Container>
                 </Navbar.Collapse>
                 </Navbar>
-
+                </nav>
 
 
                 {/* MODAL THAT SHOWS ALL THE CURRENT USER INFORMATION */}
