@@ -516,3 +516,7 @@ thead {
 .form-buttons {
   bottom: 0;
 }
+
+.footer-links h1:hover{
+  color: #485ce6;
+}
