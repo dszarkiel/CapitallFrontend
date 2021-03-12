@@ -8,13 +8,20 @@ import moment from 'moment'
 class BillContainerItem extends React.Component {
 
     renderDaysRemaining = () => {
-        let daysLeft = Math.abs(moment().diff(this.props.bill.due_date, "days"))
-        return daysLeft
+        let daysLeft = moment().diff(this.props.bill.due_date, "days")
+        if (daysLeft > 0) {
+            return `${daysLeft} past due`
+        } else {
+            let posInteger = Math.abs(daysLeft)
+            return `${posInteger} days left`
+        }
     }
 
     renderColor = () => {
-        let days = this.renderDaysRemaining()
-        if (days <= 3) {
+        const status  = this.renderDaysRemaining()
+        const day = status.split(" ")
+        let days = parseInt(day[0])
+        if (days <= 0 || day[1] === "past") {
             return "red"
         } else if( days <= 7) {
             return "orange"
@@ -35,7 +42,7 @@ class BillContainerItem extends React.Component {
                     <Row>
                     <Col sm><h5>{name}</h5></Col>
                     <Col sm><h5>${amount.toLocaleString()}</h5></Col>
-                    <Col sm><h5 style={{color: this.renderColor()}}>{this.renderDaysRemaining()} days left</h5></Col>
+                    <Col sm><h5 style={{color: this.renderColor()}}>{this.renderDaysRemaining()}</h5></Col>
                     </Row>
                     </Container>
                 </ListGroup.Item>
